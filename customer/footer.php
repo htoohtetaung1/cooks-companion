@@ -1,47 +1,13 @@
-<footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="first-item">
-                        <ul>
-                            <li class="text-danger font-weight-bold" style="font-size: larger;">Ecommerce Website</li>
-                            <li><a href="#">16501 Collins Ave, Sunny Isles Beach, FL 33160, United States</a></li>
-                            <li><a href="#">hexashop@company.com</a></li>
-                            <li><a href="#">010-020-0340</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <h4>Shopping &amp; Categories</h4>
-                    <ul>
-                        <li><a href="#">Men’s Shopping</a></li>
-                        <li><a href="#">Women’s Shopping</a></li>
-                        <li><a href="#">Kid's Shopping</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3">
-                    <h4>Useful Links</h4>
-                    <ul>
-                        <li><a href="#">Homepage</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Help</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3">
-                    <h4>Help &amp; Information</h4>
-                    <ul>
-                        <li><a href="#">Help</a></li>
-                        <li><a href="#">FAQ's</a></li>
-                        <li><a href="#">Shipping</a></li>
-                        <li><a href="#">Tracking ID</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-12">
-                    <div class="under-footer">
-                        <p>Copyright © All Rights Reserved. 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+<div class="footer">
+    This is the footer!
+    <br>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer consequat viverra velit, id mollis massa pellentesque sed. Aenean dictum non ante sed semper. Morbi sem ex, congue posuere efficitur eu, luctus at lectus. Curabitur vel maximus orci. Donec porttitor laoreet vehicula. Maecenas congue ipsum eget semper porttitor. Duis pulvinar in turpis et molestie. Vestibulum laoreet venenatis enim, sit amet mollis felis aliquam a. Maecenas pulvinar felis ac neque finibus ultricies nec ut nibh. Nullam volutpat molestie turpis, eget luctus velit elementum sed. Pellentesque hendrerit tortor est, in condimentum ligula sagittis eget. Vestibulum eget tincidunt elit, eu scelerisque justo.
+
+Pellentesque pharetra commodo velit, nec scelerisque augue efficitur in. Maecenas cursus tellus felis, nec semper libero rhoncus vitae. Integer nec felis ante. Pellentesque ultrices, est quis posuere fringilla, risus orci finibus ligula, a suscipit odio leo imperdiet nibh. Phasellus varius risus nunc, at tincidunt arcu hendrerit in. Etiam tincidunt felis id lorem molestie laoreet. Curabitur faucibus ut eros in aliquam. Cras congue ipsum risus, id consequat mi tincidunt quis. Duis consectetur nisi quis mollis fringilla. Donec auctor maximus arcu, in lobortis nisl pellentesque a. Nulla sed enim in augue dictum lacinia. Nullam pretium ante mauris. In hac habitasse platea dictumst. Nunc consequat orci vel velit ultrices, ac cursus lacus iaculis. Phasellus ac sodales tellus.
+
+Curabitur finibus, metus nec ullamcorper finibus, ex sem venenatis augue, quis rutrum nulla massa nec sapien. Etiam faucibus imperdiet dui, et faucibus enim pharetra at. Nam in diam sed risus finibus venenatis quis at tortor. In fermentum eros augue, a iaculis nibh pulvinar id. Mauris sit amet erat sed orci luctus tempor sit amet nec libero. Nam odio lorem, venenatis nec vulputate id, eleifend at magna. Donec eget odio enim. Etiam sit amet rhoncus tortor. Etiam lobortis mollis elit, sed ultrices quam pellentesque id. Integer sit amet hendrerit justo, sed faucibus elit. Vivamus molestie eros vitae porta viverra. Ut volutpat, nisl eget mollis pharetra, risus eros pellentesque urna, sit amet iaculis elit justo et odio. Donec eget condimentum lorem, eu tincidunt eros.
+
+Suspendisse commodo rutrum lectus. Ut aliquet dui enim, non dignissim dolor euismod ut. Nam quis quam nulla. Donec commodo, augue a laoreet dapibus, dui nunc pulvinar sapien, quis eleifend elit ante ut sem. Pellentesque tristique lorem at imperdiet sagittis. Phasellus lorem odio, dictum quis dapibus sit amet, malesuada at neque. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla sollicitudin nibh non blandit iaculis. Donec ut egestas libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla elementum quis ex in pretium.
+
+Aenean dignissim lacus ullamcorper lectus placerat porttitor. Aliquam ornare lacinia tristique. Curabitur pellentesque mauris eu justo porta, sed iaculis diam pharetra. Pellentesque porttitor libero ut sapien lacinia, pellentesque porttitor nulla tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla posuere laoreet maximus. Morbi lobortis urna elit, tincidunt iaculis lorem accumsan non. Vestibulum quam elit, aliquet vitae blandit finibus, posuere tristique libero. Suspendisse euismod ac ex ac placerat. In efficitur hendrerit neque, ut sagittis orci vulputate et. Quisque lectus dui, tristique in iaculis et, sagittis nec ligula. Mauris nec vestibulum magna. Cras vel euismod erat. Cras sagittis lacus a ipsum dictum, interdum blandit neque commodo. Maecenas sed enim libero.
+</div>

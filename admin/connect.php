@@ -2,7 +2,7 @@
 $severname="localhost";
 $username="root";
 $password="";
-$dbname="ecom_database1";
+$dbname="ecom_database";
 try{
     $pdo=new PDO("mysql:host=$severname;dbname=$dbname", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
