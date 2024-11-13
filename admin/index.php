@@ -89,6 +89,7 @@
         </div>
         <!-- Sales Chart End -->
     </div>
+    
     <!-- Content End -->
 
     <!-- Back to Top -->
@@ -96,4 +97,5 @@
 </div>
 
 <!-- JavaScript Libraries -->
-<?php include("jslibs.php");  ?>
+<?php 
+include("jslibs.php");  ?>

@@ -1,45 +1,46 @@
 <?php
 include("connect.php");
-
+include("data.php");
+$resultMsg = '';
 try {
     if (isset($_FILES['img'])) {
-        $target = $_FILES['img']['name']; // Corrected the variable name from $terget to $target
+        $target = $_FILES['img']['name']; 
         $tmp = $_FILES['img']['tmp_name'];
         $targetDir = "img/" . $target; // Target directory to store the uploaded image
         move_uploaded_file($tmp, $targetDir); // Moving the uploaded image to the target directory
     }
 
     if (isset($_POST['submit'])) {
-        $id = $_POST['pid'];
-        $product_name = $_POST['pname'];
-        $product_category = $_POST['pcategory'];
-        $price = $_POST['price'];
-        $stock = $_POST['stock'];
+        $product_name = nullConvert($_POST['pname']);
+        $product_type = nullConvert($_POST['ptype']);
+        $price = nullConvert($_POST['price']);
+        $desc = nullConvert($_POST['desc']);
+        $stock = nullConvert($_POST['stock']);
+        print '<h3>Inserting Data:</h3>';
+        print 'Product Name = ' . $product_name . '<br>Product Type = ' . $product_type . '<br>Price = ' . $price . '<br>Description:<br>' . $desc . '<br>Stock = ' . $stock . '<br>Photo = ' . $targetDir . '<br>'; 
 
-        // Prepared statement to prevent SQL injection
-        $sql = "INSERT INTO products (product_id, product_name, product_category, product_stock, product_price, product_image) 
-                VALUES (:id, :product_name, :product_category, :stock, :price, :product_img)";
+        $sql = "INSERT INTO products (name, product_type, price, description, qty, photo) 
+                VALUES (:pname, :ptype, :price, :desc, :qty, :photo)";
         $stmt = $pdo->prepare($sql);
 
-        // Binding parameters
-        $stmt->bindParam(':id', $id);
-        $stmt->bindParam(':product_name', $product_name);
-        $stmt->bindParam(':product_category', $product_category);
-        $stmt->bindParam(':stock', $stock);
+        $stmt->bindParam(':pname', $product_name);
+        $stmt->bindParam(':ptype', $product_type);
         $stmt->bindParam(':price', $price);
-        $stmt->bindParam(':product_img', $targetDir); // Storing the image path in the database
+        $stmt->bindParam(':desc', $desc);
+        $stmt->bindParam(':qty', $stock);
+        $stmt->bindParam(':photo', $targetDir); // Storing the image path in the database
 
-        // Executing the query
         if ($stmt->execute()) {
-            echo "Data inserted successfully!";
+            echo 'Data inserted successfully!<br>' . 
+            '<br><a href="product_create.php">Go back to previous page.</a>';
         } else {
             echo "Failed to insert data.";
         }
-
+        
         
     }
 } catch (Exception $e) {
-    die("Cannot insert data: " . $e->getMessage());
+    die("<h3>Cannot insert data: </h3>" . $e->getMessage() . 
+        '<br><a href="product_create.php">Go back to previous page.</a>');
 }
-
 ?>

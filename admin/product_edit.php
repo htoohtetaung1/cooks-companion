@@ -1,66 +1,76 @@
 <!-- import header here -->
-<?php 
-  include("head.php");
-  include("connect.php");
-  include("data.php");
-  $id=$_GET['id'];
+<?php
+include("head.php");
+include("connect.php");
+include("data.php");
+$id = $_GET['id'];
 
 
-  $product=getSpecificProduct($pdo, $id);
- 
- ?>
+$product = getSpecificProduct($pdo, $id);
+
+?>
 <div class="container-xxl position-relative bg-white d-flex p-0">
     <!-- Spinner Start -->
     <!-- import spinner here -->
-     <?php
-        include("spinner.php");
-     ?>
+    <?php
+    include("spinner.php");
+    ?>
     <!-- Spinner End -->
 
     <!-- Sidebar Start -->
     <!-- import sidebar here -->
-     <?php
-        include("sidebar.php");
-     ?>
+    <?php
+    include("sidebar.php");
+    ?>
     <!-- Sidebar End -->
 
     <!-- Content Start -->
     <div class="content">
         <!-- Navbar Start -->
         <!-- import navbar here -->
-         <?php  
-            include("navbar.php");
-         ?>
+        <?php
+        include("navbar.php");
+        ?>
         <!-- Navbar End -->
-        
+
         <!-- Form Start -->
+
         <div class="container-fluid pt-4 px-4">
             <div class="row g-4">
                 <div class="col-sm-12 col-xl-12 px-lg-5">
                     <div class="bg-light rounded h-100 p-4">
                         <h6 class="mb-4">Update Products</h6>
-                        <form method="post" action="">
+                        <form method="post" action="" enctype="multipart/form-data">
                             <div class="mb-3">
                                 <label for="product_id" class="form-label">Product ID</label>
                                 <input type="number" name="pid" class="form-control" id="product_id" aria-describedby="product_id" readonly value="<?= htmlspecialchars($product['product_id']) ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="product_name" class="form-label">Name</label>
-                                <input type="text" name="pname" class="form-control" id="prouct_name" value="<?= htmlspecialchars($product['product_name']) ?>">
+                                <input type="text" name="pname" class="form-control" id="prouct_name" value="<?= htmlspecialchars($product['name']) ?>">
                             </div>
 
                             <div class="mb-3">
                                 <label for="category" class="form-label">Category</label>
-                                <input type="text" name="pcategory" class="form-control" id="category" value="<?= htmlspecialchars($product['product_category']) ?>">
+                                <input type="text" name="ptype" class="form-control" id="category" value="<?= htmlspecialchars($product['product_type']) ?>">
                             </div>
 
                             <div class="mb-3">
                                 <label for="price" class="form-label">Price</label>
-                                <input type="text" name="price" class="form-control" id="price" value="<?= htmlspecialchars($product['product_price']) ?>">
+                                <input type="text" name="price" class="form-control" id="price" value="<?= htmlspecialchars($product['price']) ?>">
+                            </div>
+                            <div class="mb-3">
+                                <label for="stock" class="form-label">Description</label>
+                                <input type="text" name="desc" class="form-control" id="stock" value="<?= htmlspecialchars($product['description']) ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="stock" class="form-label">Stock</label>
-                                <input type="text" name="stock" class="form-control" id="stock" value="<?= htmlspecialchars($product['product_stock']) ?>">
+                                <input type="number" name="stock" class="form-control" id="stock" value="<?= htmlspecialchars($product['qty']) ?>">
+                            </div>
+                            <div class="mb-3">
+                                <label for="img" class="form-label">Photo</label>
+                                <input type="file" name="img" class="form-control" id="img" >
+
                             </div>
                             <button type="submit" name="submit" class="btn btn-primary">Update</button>
                         </form>
@@ -70,37 +80,54 @@
         </div>
         <!-- Form End -->
         <?php
-if(isset($_POST['submit'])) {
-    try {
-        $product_name = $_POST['pname'];
-        $product_category = $_POST['pcategory'];
-        $price = $_POST['price'];
-        $stock = $_POST['stock'];
+        if (isset($_FILES['img'])) {
+            $id = $product['product_id'];
+            $target = $_FILES['img']['name'];
+            $tmp = $_FILES['img']['tmp_name'];
+            $targetDir = "img/" . $target; // Target directory to store the uploaded image
+            move_uploaded_file($tmp, $targetDir); // Moving the uploaded image to the target directory
+            if($_FILES['img']['size'] == 0) {
+                print('<div class="text-center mt-2"><b>No new image inserted.</b></div> <br>');
+                $targetDir = $product['photo'];
+            }
+        }
 
-        $sql = "UPDATE products SET 
-                product_name = :name,
-                product_category = :category,
-                product_price = :price,
-                product_stock = :stock
+
+        if (isset($_POST['submit'])) {
+            try {
+                $id = $product['product_id'];
+                $pname = $_POST['pname'];
+                $ptype = $_POST['ptype'];
+                $price = $_POST['price'];
+                $desc = $_POST['desc'];
+                $stock = $_POST['stock'];
+
+                $sql = "UPDATE products SET 
+                name = :pname,
+                product_type = :ptype,
+                price = :price,
+                description = :desc,
+                qty = :stock,
+                photo = :img
                 WHERE product_id = :id";
 
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([
-            ':id' => $id,
-            ':name' => $product_name,
-            ':category' => $product_category,
-            ':price' => $price,
-            ':stock' => $stock
-        ]);
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute([
+                    ':id' => $id,
+                    ':pname' => $pname,
+                    ':ptype' => $ptype,
+                    ':price' => $price,
+                    ':desc' => $desc,
+                    ':stock' => $stock,
+                    ':img' => $targetDir
+                ]);
 
-         echo "Product Update Successfully!";
-     
-
-    } catch (Exception $e) {
-        echo "Error updating product: " . $e->getMessage();
-    }
-}
-?>
+                echo '<div class="text-center"><b>Product Updated Successfully! </b><div>';
+            } catch (Exception $e) {
+                echo "<h4>Error updating product: " . $e->getMessage() . "</h4>";
+            }
+        }
+        ?>
 
 
         <!-- Footer Start -->

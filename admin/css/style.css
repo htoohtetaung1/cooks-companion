@@ -3,6 +3,12 @@
     --primary: #2ec4b6;
     --light: #F3F6F9;
     --dark: #191C24;
+    --white: #FFFFFF;
+    --darkg: #574b60;
+    --darkp: #3f334d;
+    --grey: #7d8491;
+    --lgrey: #c0c5c1;
+    --offwhite: #eaf0ce;
 }
 
 .back-to-top {
@@ -275,3 +281,19 @@
     background: var(--dark);
     border-color: var(--primary);
 }
+
+.custom-select {
+    min-width: 200px;
+  }
+  
+  .custom-select select {
+    appearance: none;
+    width: 100%;
+    font-size: 1.15rem;
+    padding: 0.675em 6em 0.675em 1em;
+    background-color: #fff;
+    border: 1px solid #caced1;
+    border-radius: 0.25rem;
+    color: #000;
+    cursor: pointer;
+  }
