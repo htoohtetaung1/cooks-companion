@@ -57,13 +57,16 @@ include("data.php");
 
                             <div class="mb-3">
                                 <label for="description" class="form-label">Description</label> <br>
-                                <!-- <input type="textarea" name="desc" class="form-control" id="description"> -->
                                 <textarea id="description" class="form-control" name="desc" rows="4" wrap="soft" placeholder="Add product description"></textarea>
                             </div>
 
                             <div class="mb-3">
                                 <label for="stock" class="form-label">Stock</label>
                                 <input type="text" name="stock" class="form-control" id="stock">
+                            </div>
+                            <div class="mb-3">
+                                <label for="discount" class="form-label">Discount: 0 to 100</label>
+                                <input type="text" name="discount" class="form-control" id="discount">
                             </div>
                             <div class="mb-3">
                                 <label for="img" class="form-label">Photo</label>

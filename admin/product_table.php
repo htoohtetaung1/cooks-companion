@@ -58,9 +58,10 @@ $products = getProducts($pdo);
                                                 </p>
                                             </td>
                                             <td><?= $product['Stock'] ?></td>
+                                            <td><?= $product['Discount'] ?></td>
                                             <td><img src="<?= $product['Photo'] ?>" alt="Product Image" style="width: 80px; height: 100px;"></td> <!-- Display image -->
 
-                                            <td>
+                                        <td>
                                                 <form>
                                                     <a href=<?= "product_edit.php?id=" . $product['ID'] ?> class="btn btn-primary"><i class="fa-regular fa-pen-to-square"></i></a>
                                                     <a href=<?= "product_delete.php?id=" . $product['ID'] ?> class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>

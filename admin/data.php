@@ -1,6 +1,6 @@
 <?php
 function getProducts($pdo){
-    $sql= "select product_id as ID, name as Name, product_type as Product_Type, price as Price, description as Description, qty as Stock, photo as Photo from products";
+    $sql= "select product_id as ID, name as Name, product_type as Product_Type, price as Price, description as Description, qty as Stock, discount_percent as Discount, photo as Photo from products";
     $stmt=$pdo->query($sql);
     $products=$stmt->fetchALL(PDO::FETCH_ASSOC);
     return $products;

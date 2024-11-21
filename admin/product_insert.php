@@ -1,7 +1,6 @@
 <?php
 include("connect.php");
 include("data.php");
-$resultMsg = '';
 try {
     if (isset($_FILES['img'])) {
         $target = $_FILES['img']['name']; 
@@ -16,11 +15,13 @@ try {
         $price = nullConvert($_POST['price']);
         $desc = nullConvert($_POST['desc']);
         $stock = nullConvert($_POST['stock']);
+        $discount = $_POST['discount'];
         print '<h3>Inserting Data:</h3>';
-        print 'Product Name = ' . $product_name . '<br>Product Type = ' . $product_type . '<br>Price = ' . $price . '<br>Description:<br>' . $desc . '<br>Stock = ' . $stock . '<br>Photo = ' . $targetDir . '<br>'; 
+        print 'Product Name = ' . $product_name . '<br>Product Type = ' . $product_type . '<br>Price = ' . $price . '<br>Description:<br>' . $desc . '<br>Stock = ' 
+                                . $stock . '<br>Discount = ' . $discount . '<br>Photo = ' . $targetDir . '<br>'; 
 
-        $sql = "INSERT INTO products (name, product_type, price, description, qty, photo) 
-                VALUES (:pname, :ptype, :price, :desc, :qty, :photo)";
+        $sql = "INSERT INTO products (name, product_type, price, description, qty, discount_percent, photo) 
+                VALUES (:pname, :ptype, :price, :desc, :qty, :discount, :photo)";
         $stmt = $pdo->prepare($sql);
 
         $stmt->bindParam(':pname', $product_name);
@@ -28,6 +29,7 @@ try {
         $stmt->bindParam(':price', $price);
         $stmt->bindParam(':desc', $desc);
         $stmt->bindParam(':qty', $stock);
+        $stmt->bindParam(':discount', $discount);
         $stmt->bindParam(':photo', $targetDir); // Storing the image path in the database
 
         if ($stmt->execute()) {

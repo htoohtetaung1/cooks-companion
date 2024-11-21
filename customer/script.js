@@ -6,11 +6,20 @@ function dropdownNavLinks() {
     document.getElementById("dropdown-navlinks").classList.toggle("show");
 }
 
-const carousel = document.querySelector(".carousel-container");
-const slide = document.querySelector(".carousel-item");
 
-function moveCarousel(positive = true) {
-  const slideWidth = slide.clientWidth + 1;
+function moveCarousel(positive = true,containerID,itemID) {
+  const carousel = document.querySelector("." + containerID);
+  const slide = document.querySelector("." +itemID);
+  const slideWidth = slide.clientWidth + 24;
   carousel.scrollLeft = positive ? carousel.scrollLeft + slideWidth : carousel.scrollLeft - slideWidth;
-//   carousel.scrollLeft = positive ? alert("right") : alert("left");
+  // carousel.scrollLeft = positive ? alert("right") : alert("left");
+
+  // debugging
+  // alert (containerID+" "+ carousel);
+  // alert (itemID+" "+slide);
+  
 }
+
+
+
+

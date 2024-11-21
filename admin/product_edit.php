@@ -51,8 +51,14 @@ $product = getSpecificProduct($pdo, $id);
                             </div>
 
                             <div class="mb-3">
-                                <label for="category" class="form-label">Category</label>
-                                <input type="text" name="ptype" class="form-control" id="category" value="<?= htmlspecialchars($product['product_type']) ?>">
+                                <label for="product_type" class="form-label">Product Type</label>
+                                <br>
+                                <select name="ptype" id="product_type" class="custom-select">
+                                        <option value="Kitchen Knives">Kitchen Knives</option>
+                                        <option value="Cookware">Cookware</option>
+                                        <option value="Accessories">Accessories</option>
+                                        <option value="Appliances">Appliances</option>
+                                </select>
                             </div>
 
                             <div class="mb-3">
@@ -66,6 +72,10 @@ $product = getSpecificProduct($pdo, $id);
                             <div class="mb-3">
                                 <label for="stock" class="form-label">Stock</label>
                                 <input type="number" name="stock" class="form-control" id="stock" value="<?= htmlspecialchars($product['qty']) ?>">
+                            </div>
+                            <div class="mb-3">
+                                <label for="discount" class="form-label">Discount</label>
+                                <input type="number" name="discount" class="form-control" id="discount" value="<?= htmlspecialchars($product['discount_percent']) ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="img" class="form-label">Photo</label>
@@ -101,6 +111,7 @@ $product = getSpecificProduct($pdo, $id);
                 $price = $_POST['price'];
                 $desc = $_POST['desc'];
                 $stock = $_POST['stock'];
+                $discount = $_POST['discount'];
 
                 $sql = "UPDATE products SET 
                 name = :pname,
@@ -108,6 +119,7 @@ $product = getSpecificProduct($pdo, $id);
                 price = :price,
                 description = :desc,
                 qty = :stock,
+                discount_percent = :discount,
                 photo = :img
                 WHERE product_id = :id";
 
@@ -119,6 +131,7 @@ $product = getSpecificProduct($pdo, $id);
                     ':price' => $price,
                     ':desc' => $desc,
                     ':stock' => $stock,
+                    ':discount' => $discount,
                     ':img' => $targetDir
                 ]);
 
