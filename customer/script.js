@@ -20,6 +20,19 @@ function moveCarousel(positive = true,containerID,itemID) {
   
 }
 
+function addedToCart() {
+  alert("added to cart!");
+}
+
+function refreshForm() {
+  alert('called');
+  const profileForm = document.querySelector(".profileForm");
+}
+
+function resetSearch() {
+  window.location = 'search_process.php';
+}
+
 
 
 

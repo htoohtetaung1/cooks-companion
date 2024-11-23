@@ -13,8 +13,8 @@ include("navbar.php");
 
 //resetting session if login page is reached
 session_start();
-session_destroy();
-session_start();
+// session_destroy();
+// session_start();
 ?>
 
 <div class="main">
@@ -66,6 +66,7 @@ session_start();
                     $loggedInUser = $user['name'];
                     $_SESSION['loggedIn'] = true;
                     $_SESSION['username'] = $user['name'];
+                    $_SESSION['user_id'] = $user['user_id'];
                     $_SESSION['email'] = $user['email'];
                     $_SESSION['phone'] = $user['phone'];
                     $_SESSION['address'] = $user['address'];

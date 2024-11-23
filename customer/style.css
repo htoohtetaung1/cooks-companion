@@ -627,6 +627,7 @@ ul>li {
 }
 
 .email-input {
+    padding: 15px 15px;
     background-color: var(--lgrey);
     width: 300px;
 }

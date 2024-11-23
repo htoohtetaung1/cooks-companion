@@ -42,13 +42,15 @@ include("navbar.php");
                             $imgSrc = "img/default.png"; // Ensure this default image exists
                         }
                     }
+
+
                 ?>
 
                     <div class="carousel-item new-carousel-item">
-                        <a href="login_page.php">
+                        <a href="<?= 'product_detail_page.php?id=' . $product['product_id'] ?>">
                             <img src="<?php echo $imgSrc; ?>" alt="<?php echo $product['name']; ?>" style="width:150px; height:150px;" />
                         </a>
-                        <div class="item-name"><a href="login_page.php"><?php echo $product['name']; ?></a></div>
+                        <div class="item-name"><a href="<?= 'product_detail_page.php?id=' . $product['product_id'] ?>"><?php echo $product['name']; ?></a></div>
                         <div class="line-break" style="margin-bottom: 0px"></div>
                         <?php if ($product['discount_percent'] > 0): ?>
                             <div class="item-price">Price:
@@ -63,11 +65,13 @@ include("navbar.php");
                         <?php endif ?>
 
                         <!-- Add to cart button -->
-                        <form method="post" action="cart.php">
-                            <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>" />
+                        <form method="post" action="addtocart.php">
+                            <input type="hidden" name="id" value="<?php echo $product['product_id']; ?>" />
                             <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
                             <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />
-                            <button name="add_to_cart" class="add-cart-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <input type="hidden" name="goTo" value="products" />
+                            <input type="hidden" name="amountAdd" value="1" />
+                            <button name="add_to_cart" name='submit' class="add-cart-btn" onclick="addedToCart()"><i class="fa-solid fa-cart-shopping"></i></button>
                         </form>
                     </div>
 
@@ -81,10 +85,10 @@ include("navbar.php");
         </div>
     </div>
 
-    <!-- promo carousel -->
-    <div class="carousel-row">
+<!-- promo carousel -->
+<div class="carousel-row">
         <div class="carousel-title-div">
-            <div class="carousel-title">Promotion Products</div>
+            <div class="carousel-title">Promo Products</div>
             <div class="carousel-browse-link"><a href="">Browse All Products ></a></div>
         </div>
         <div class="carousel-group">
@@ -105,13 +109,15 @@ include("navbar.php");
                             $imgSrc = "img/default.png"; // Ensure this default image exists
                         }
                     }
+
+
                 ?>
 
                     <div class="carousel-item promo-carousel-item">
-                        <a href="login_page.php">
+                        <a href="<?= 'product_detail_page.php?id=' . $product['product_id'] ?>">
                             <img src="<?php echo $imgSrc; ?>" alt="<?php echo $product['name']; ?>" style="width:150px; height:150px;" />
                         </a>
-                        <div class="item-name"><a href="login_page.php"><?php echo $product['name']; ?></a></div>
+                        <div class="item-name"><a href="<?= 'product_detail_page.php?id=' . $product['product_id'] ?>"><?php echo $product['name']; ?></a></div>
                         <div class="line-break" style="margin-bottom: 0px"></div>
                         <?php if ($product['discount_percent'] > 0): ?>
                             <div class="item-price">Price:
@@ -126,11 +132,13 @@ include("navbar.php");
                         <?php endif ?>
 
                         <!-- Add to cart button -->
-                        <form method="post" action="cart.php">
-                            <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>" />
+                        <form method="post" action="addtocart.php">
+                            <input type="hidden" name="id" value="<?php echo $product['product_id']; ?>" />
                             <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
                             <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />
-                            <button name="add_to_cart" class="add-cart-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <input type="hidden" name="goTo" value="products" />
+                            <input type="hidden" name="amountAdd" value="1" />
+                            <button name="add_to_cart" name='submit' class="add-cart-btn" onclick="addedToCart()"><i class="fa-solid fa-cart-shopping"></i></button>
                         </form>
                     </div>
 
@@ -151,11 +159,11 @@ include("navbar.php");
             <div class="carousel-browse-link"><a href="">Browse All Products ></a></div>
         </div>
         <div class="carousel-group">
-            <button class="carousel-arrow carousel-arrow--prev" onclick="moveCarousel(false,'cw-carousel','cw-item')">
+            <button class="carousel-arrow carousel-arrow--prev" onclick="moveCarousel(false,'cc-carousel','cc-carousel-item')">
                 &#8249;
             </button>
 
-            <div class="carousel-container cw-carousel">
+            <div class="carousel-container cc-carousel">
                 <?php
                 $newProducts = fetchProducts($pdo, "cookware");
                 // show 8 newest products in the carousel 
@@ -171,9 +179,12 @@ include("navbar.php");
 
 
                 ?>
-                    <div class="carousel-item cw-item">
-                        <img src="<?php echo $imgSrc; ?>" alt="<?php echo $product['name']; ?>" style="width:150px; height:150px;" />
-                        <div class="item-name"><?php echo $product['name']; ?></div>
+
+                    <div class="carousel-item cc-carousel-item">
+                        <a href="<?= 'product_detail_page.php?id=' . $product['product_id'] ?>">
+                            <img src="<?php echo $imgSrc; ?>" alt="<?php echo $product['name']; ?>" style="width:150px; height:150px;" />
+                        </a>
+                        <div class="item-name"><a href="<?= 'product_detail_page.php?id=' . $product['product_id'] ?>"><?php echo $product['name']; ?></a></div>
                         <div class="line-break" style="margin-bottom: 0px"></div>
                         <?php if ($product['discount_percent'] > 0): ?>
                             <div class="item-price">Price:
@@ -184,22 +195,25 @@ include("navbar.php");
                             </div>
                         <?php endif ?>
                         <?php if ($product['discount_percent'] == 0): ?>
-                            <div class="item-price">Price: $<?php echo $product['price'] . 'Ks'; ?></div>
+                            <div class="item-price">Price: <?php echo $product['price'] . 'Ks'; ?></div>
                         <?php endif ?>
 
                         <!-- Add to cart button -->
-                        <form method="post" action="cart.php">
-                            <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>" />
+                        <form method="post" action="addtocart.php">
+                            <input type="hidden" name="id" value="<?php echo $product['product_id']; ?>" />
                             <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
                             <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />
-                            <button name="add_to_cart" class="add-cart-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <input type="hidden" name="goTo" value="products" />
+                            <input type="hidden" name="amountAdd" value="1" />
+                            <button name="add_to_cart" name='submit' class="add-cart-btn" onclick="addedToCart()"><i class="fa-solid fa-cart-shopping"></i></button>
                         </form>
                     </div>
+
                 <?php endforeach ?>
 
             </div>
 
-            <button class="carousel-arrow carousel-arrow--next" onclick="moveCarousel(true,'cw-carousel','cw-item')">
+            <button class="carousel-arrow carousel-arrow--next" onclick="moveCarousel(true,'cc-carousel','cc-carousel-item')">
                 &#8250;
             </button>
         </div>
@@ -232,9 +246,12 @@ include("navbar.php");
 
 
                 ?>
+
                     <div class="carousel-item knives-carousel-item">
-                        <img src="<?php echo $imgSrc; ?>" alt="<?php echo $product['name']; ?>" style="width:150px; height:150px;" />
-                        <div class="item-name"><?php echo $product['name']; ?></div>
+                        <a href="<?= 'product_detail_page.php?id=' . $product['product_id'] ?>">
+                            <img src="<?php echo $imgSrc; ?>" alt="<?php echo $product['name']; ?>" style="width:150px; height:150px;" />
+                        </a>
+                        <div class="item-name"><a href="<?= 'product_detail_page.php?id=' . $product['product_id'] ?>"><?php echo $product['name']; ?></a></div>
                         <div class="line-break" style="margin-bottom: 0px"></div>
                         <?php if ($product['discount_percent'] > 0): ?>
                             <div class="item-price">Price:
@@ -245,17 +262,20 @@ include("navbar.php");
                             </div>
                         <?php endif ?>
                         <?php if ($product['discount_percent'] == 0): ?>
-                            <div class="item-price">Price: $<?php echo $product['price'] . 'Ks'; ?></div>
+                            <div class="item-price">Price: <?php echo $product['price'] . 'Ks'; ?></div>
                         <?php endif ?>
 
                         <!-- Add to cart button -->
-                        <form method="post" action="cart.php">
-                            <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>" />
+                        <form method="post" action="addtocart.php">
+                            <input type="hidden" name="id" value="<?php echo $product['product_id']; ?>" />
                             <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
                             <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />
-                            <button name="add_to_cart" class="add-cart-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <input type="hidden" name="goTo" value="products" />
+                            <input type="hidden" name="amountAdd" value="1" />
+                            <button name="add_to_cart" name='submit' class="add-cart-btn" onclick="addedToCart()"><i class="fa-solid fa-cart-shopping"></i></button>
                         </form>
                     </div>
+
                 <?php endforeach ?>
 
             </div>
@@ -266,81 +286,18 @@ include("navbar.php");
         </div>
     </div>
 
-
-    <!-- accessories carousel -->
-    <div class="carousel-row">
-        <div class="carousel-title-div">
-            <div class="carousel-title">Accessories</div>
-            <div class="carousel-browse-link"><a href="">Browse All Products ></a></div>
-        </div>
-        <div class="carousel-group">
-            <button class="carousel-arrow carousel-arrow--prev" onclick="moveCarousel(false,'accessories-carousel','accessories-carousel-item')">
-                &#8249;
-            </button>
-
-            <div class="carousel-container accessories-carousel">
-                <?php
-                $newProducts = fetchProducts($pdo, "accessories");
-                // show 8 newest products in the carousel 
-                foreach (array_slice($newProducts, 0, 8) as $product): {
-                        $product['photo'] = '../admin/' . $product['photo'];
-                        if (!empty($product['photo']) && file_exists($product['photo'])) {
-                            $imgSrc = $product['photo']; // Path to the image
-                        } else {
-                            // Default placeholder image if no image is found or the path is incorrect
-                            $imgSrc = "img/default.png"; // Ensure this default image exists
-                        }
-                    }
-
-
-                ?>
-                    <div class="carousel-item accessories-carousel-item">
-                        <img src="<?php echo $imgSrc; ?>" alt="<?php echo $product['name']; ?>" style="width:150px; height:150px;" />
-                        <div class="item-name"><?php echo $product['name']; ?></div>
-                        <div class="line-break" style="margin-bottom: 0px"></div>
-                        <?php if ($product['discount_percent'] > 0): ?>
-                            <div class="item-price">Price:
-                                <?php
-                                echo '<s>' . $product['price'] . '</s>Ks&nbsp;<br>' . calculatePrice($product) . 'Ks';
-                                echo '&nbsp<span>(' . $product['discount_percent'] . '% Off!)</span>';
-                                ?>
-                            </div>
-                        <?php endif ?>
-                        <?php if ($product['discount_percent'] == 0): ?>
-                            <div class="item-price">Price: $<?php echo $product['price'] . 'Ks'; ?></div>
-                        <?php endif ?>
-
-                        <!-- Add to cart button -->
-                        <form method="post" action="cart.php">
-                            <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>" />
-                            <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
-                            <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />
-                            <button name="add_to_cart" class="add-cart-btn"><i class="fa-solid fa-cart-shopping"></i></button>
-                        </form>
-                    </div>
-                <?php endforeach ?>
-
-            </div>
-
-            <button class="carousel-arrow carousel-arrow--next" onclick="moveCarousel(true,'accessories-carousel','accessories-carousel-item')">
-                &#8250;
-            </button>
-        </div>
-    </div>
-
-
-    <!-- appliance carousel -->
+    <!-- appliances carousel -->
     <div class="carousel-row">
         <div class="carousel-title-div">
             <div class="carousel-title">Appliances</div>
             <div class="carousel-browse-link"><a href="">Browse All Products ></a></div>
         </div>
         <div class="carousel-group">
-            <button class="carousel-arrow carousel-arrow--prev" onclick="moveCarousel(false,'appliance-carousel','appliance-carousel-item')">
+            <button class="carousel-arrow carousel-arrow--prev" onclick="moveCarousel(false,'app-carousel','app-carousel-item')">
                 &#8249;
             </button>
 
-            <div class="carousel-container appliance-carousel">
+            <div class="carousel-container app-carousel">
                 <?php
                 $newProducts = fetchProducts($pdo, "appliances");
                 // show 8 newest products in the carousel 
@@ -356,9 +313,12 @@ include("navbar.php");
 
 
                 ?>
-                    <div class="carousel-item appliance-carousel-item">
-                        <img src="<?php echo $imgSrc; ?>" alt="<?php echo $product['name']; ?>" style="width:150px; height:150px;" />
-                        <div class="item-name"><?php echo $product['name']; ?></div>
+
+                    <div class="carousel-item app-carousel-item">
+                        <a href="<?= 'product_detail_page.php?id=' . $product['product_id'] ?>">
+                            <img src="<?php echo $imgSrc; ?>" alt="<?php echo $product['name']; ?>" style="width:150px; height:150px;" />
+                        </a>
+                        <div class="item-name"><a href="<?= 'product_detail_page.php?id=' . $product['product_id'] ?>"><?php echo $product['name']; ?></a></div>
                         <div class="line-break" style="margin-bottom: 0px"></div>
                         <?php if ($product['discount_percent'] > 0): ?>
                             <div class="item-price">Price:
@@ -369,30 +329,98 @@ include("navbar.php");
                             </div>
                         <?php endif ?>
                         <?php if ($product['discount_percent'] == 0): ?>
-                            <div class="item-price">Price: $<?php echo $product['price'] . 'Ks'; ?></div>
+                            <div class="item-price">Price: <?php echo $product['price'] . 'Ks'; ?></div>
                         <?php endif ?>
 
                         <!-- Add to cart button -->
-                        <form method="post" action="cart.php">
-                            <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>" />
+                        <form method="post" action="addtocart.php">
+                            <input type="hidden" name="id" value="<?php echo $product['product_id']; ?>" />
                             <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
                             <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />
-                            <button name="add_to_cart" class="add-cart-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <input type="hidden" name="goTo" value="products" />
+                            <input type="hidden" name="amountAdd" value="1" />
+                            <button name="add_to_cart" name='submit' class="add-cart-btn" onclick="addedToCart()"><i class="fa-solid fa-cart-shopping"></i></button>
                         </form>
                     </div>
+
                 <?php endforeach ?>
 
             </div>
 
-            <button class="carousel-arrow carousel-arrow--next" onclick="moveCarousel(true,'appliance-carousel','appliance-carousel-item')">
+            <button class="carousel-arrow carousel-arrow--next" onclick="moveCarousel(true,'app-carousel','app-carousel-item')">
+                &#8250;
+            </button>
+        </div>
+    </div>
+
+    <!-- accessories carousel -->
+    <div class="carousel-row" style="margin-bottom: 40px">
+        <div class="carousel-title-div">
+            <div class="carousel-title">Accessories</div>
+            <div class="carousel-browse-link"><a href="">Browse All Products ></a></div>
+        </div>
+        <div class="carousel-group">
+            <button class="carousel-arrow carousel-arrow--prev" onclick="moveCarousel(false,'acc-carousel','acc-carousel-item')">
+                &#8249;
+            </button>
+
+            <div class="carousel-container acc-carousel">
+                <?php
+                $newProducts = fetchProducts($pdo, "accessories");
+                // show 8 newest products in the carousel 
+                foreach (array_slice($newProducts, 0, 8) as $product): {
+                        $product['photo'] = '../admin/' . $product['photo'];
+                        if (!empty($product['photo']) && file_exists($product['photo'])) {
+                            $imgSrc = $product['photo']; // Path to the image
+                        } else {
+                            // Default placeholder image if no image is found or the path is incorrect
+                            $imgSrc = "img/default.png"; // Ensure this default image exists
+                        }
+                    }
+
+
+                ?>
+
+                    <div class="carousel-item acc-carousel-item">
+                        <a href="<?= 'product_detail_page.php?id=' . $product['product_id'] ?>">
+                            <img src="<?php echo $imgSrc; ?>" alt="<?php echo $product['name']; ?>" style="width:150px; height:150px;" />
+                        </a>
+                        <div class="item-name"><a href="<?= 'product_detail_page.php?id=' . $product['product_id'] ?>"><?php echo $product['name']; ?></a></div>
+                        <div class="line-break" style="margin-bottom: 0px"></div>
+                        <?php if ($product['discount_percent'] > 0): ?>
+                            <div class="item-price">Price:
+                                <?php
+                                echo '<s>' . $product['price'] . '</s>Ks&nbsp;<br>' . calculatePrice($product) . 'Ks';
+                                echo '&nbsp<span>(' . $product['discount_percent'] . '% Off!)</span>';
+                                ?>
+                            </div>
+                        <?php endif ?>
+                        <?php if ($product['discount_percent'] == 0): ?>
+                            <div class="item-price">Price: <?php echo $product['price'] . 'Ks'; ?></div>
+                        <?php endif ?>
+
+                        <!-- Add to cart button -->
+                        <form method="post" action="addtocart.php">
+                            <input type="hidden" name="id" value="<?php echo $product['product_id']; ?>" />
+                            <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
+                            <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />
+                            <input type="hidden" name="goTo" value="products" />
+                            <input type="hidden" name="amountAdd" value="1" />
+                            <button name="add_to_cart" name='submit' class="add-cart-btn" onclick="addedToCart()"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </form>
+                    </div>
+
+                <?php endforeach ?>
+
+            </div>
+
+            <button class="carousel-arrow carousel-arrow--next" onclick="moveCarousel(true,'acc-carousel','acc-carousel-item')">
                 &#8250;
             </button>
         </div>
     </div>
 
 </div>
-
-
 <!-- import footer -->
 <?php
 include("footer.php");

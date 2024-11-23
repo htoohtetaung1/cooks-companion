@@ -92,7 +92,7 @@ session_start();
         </div>
 
     </div>
-    <div class="new-products-row carousel-row">
+    <div class="carousel-row">
         <div class="carousel-title-div">
             <div class="carousel-title">New Products</div>
             <div class="carousel-browse-link"><a href="">Browse All Products ></a></div>
@@ -121,10 +121,10 @@ session_start();
                 ?>
 
                     <div class="carousel-item new-carousel-item">
-                        <a href="login_page.php">
+                        <a href="<?= 'product_detail_page.php?id=' . $product['product_id'] ?>">
                             <img src="<?php echo $imgSrc; ?>" alt="<?php echo $product['name']; ?>" style="width:150px; height:150px;" />
                         </a>
-                        <div class="item-name"><a href="login_page.php"><?php echo $product['name']; ?></a></div>
+                        <div class="item-name"><a href="<?= 'product_detail_page.php?id=' . $product['product_id'] ?>"><?php echo $product['name']; ?></a></div>
                         <div class="line-break" style="margin-bottom: 0px"></div>
                         <?php if ($product['discount_percent'] > 0): ?>
                             <div class="item-price">Price:
@@ -139,11 +139,13 @@ session_start();
                         <?php endif ?>
 
                         <!-- Add to cart button -->
-                        <form method="post" action="cart.php">
-                            <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>" />
+                        <form method="post" action="addtocart.php">
+                            <input type="hidden" name="id" value="<?php echo $product['product_id']; ?>" />
                             <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
                             <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />
-                            <button name="add_to_cart" class="add-cart-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <input type="hidden" name="goTo" value="home"/>
+                            <input type="hidden" name="amountAdd" value="1" />
+                            <button name="add_to_cart" name='submit' class="add-cart-btn" onclick="addedToCart()"><i class="fa-solid fa-cart-shopping"></i></button>
                         </form>
                     </div>
 

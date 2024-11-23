@@ -21,7 +21,9 @@
         <div class="navbar-nav w-100">
             <a href="index.php" class="nav-item nav-link"><i class="fa-solid fa-gauge"></i>Dashboard</a>
             <a href="product_create.php" class="nav-item nav-link"><i class="fa-solid fa-plus"></i>ADD Products</a>
-            <a href="product_table.php" class="nav-item nav-link"><i class="fa-solid fa-table"></i>Product Tables</a>
+            <a href="product_table.php" class="nav-item nav-link"><i class="fa-solid fa-table"></i>Product Table</a>
+            <a href="user_table.php" class="nav-item nav-link"><i class="fa-solid fa-table"></i>User Table</a>
+            <a href="order_table.php" class="nav-item nav-link"><i class="fa-solid fa-table"></i>Order Table</a>
         </div>
     </nav>
 </div>

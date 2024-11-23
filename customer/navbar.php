@@ -1,13 +1,22 @@
-<div class="navbar">
+<div class="navbar" style="padding-left: 20px">
     <div class="nav-logo">
         <div class="nav-logo-text">
             <a href="index.php">Cook's Companion</a>
         </div>
     </div>
     <div class="nav-search nav-item">
-        <form action="" class="nav-search-form">
-            <input type="text" placeholder="Search" class="nav-search-input" name="nav-search">
-            <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <form action="search_process.php" method="GET" class="nav-search-form">
+            <input type="hidden" name="filter" value="">
+            <input type="hidden" name="sort" value="price">
+            <input type="text" placeholder="Search" list="categories" class="nav-search-input" name="search">
+            <datalist id="categories">
+                <option value="Kitchen Knives">
+                <option value="Cookware">
+                <option value="Appliances">
+                <option value="Accessories">
+            </datalist>
+            <button class="search-button" name="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+
             <!-- <input type="button" class="search-button" src="pics/search-icon.png" width="30px"> -->
         </form>
     </div>
@@ -30,7 +39,7 @@
     </div>
     <div class="nav-icons-div">
         <div class="nav-icon"><a href="check_login.php"><img src="pics/user-icon.png" width="23px" alt=""></a></div>
-        <div class="nav-icon"><a href=""><img src="pics/cart-icon.png" width="23px" alt=""></a></div>
+        <div class="nav-icon"><a href="check_login_cart.php"><img src="pics/cart-icon.png" width="23px" alt=""></a></div>
     </div>
     <div class="hamburger nav-icon dropdown">
         <button onclick="dropdownHeader()">
@@ -43,15 +52,15 @@
             </form>
             <div class="nav-link large-font droplink">
                 <ul>
-                    <span style="text-decoration:underline">Browse</span> 
+                    <span style="text-decoration:underline">Browse</span>
                     <li>
                         <a href="all_products_page.php">All Products</a>
                     </li>
-    
+
                     <li>
                         <a href="">Cookware</a>
                     </li>
-    
+
                     <li>
                         <a href="">Kitchen Knives</a>
                     </li>
