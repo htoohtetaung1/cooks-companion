@@ -1,12 +1,13 @@
 <!-- set page name and import html head -->
 <?php
+session_start();
 include("connect.php");
 include("fetch_Product.php");
 include('calculate_price.php');
 include("data.php");
-session_start();
 
 if (!isset($_SESSION['loggedIn'])) {
+    // echo 'not logged in';
     header("Location: login_page.php");
     exit;
 }
@@ -43,6 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     switch ($goTo) {
         case 'home': {
+                echo $_SESSION['username'];
                 header("Location: index.php");
                 exit;
             }

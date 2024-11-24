@@ -1,8 +1,8 @@
 <?php
+session_start();
 $pagename = "Complete Your Purchase";
 include("head.php");
 include("navbar.php");
-session_start();
 
 // Check if form data is sent via POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

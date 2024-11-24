@@ -1,5 +1,6 @@
 <!-- set page name and import html head -->
 <?php
+session_start();
 $pagename = "The Best Companion for a Cook!";
 include("head.php");
 include("connect.php");
@@ -9,10 +10,12 @@ include("fetch_Product.php");
 <!-- import nav bar -->
 <?php
 include("navbar.php");
-session_start();
 ?>
 
 <div class="main">
+    <!-- <?= 'Your session ID: ' . session_id()?>
+    <?= $_SESSION['loggedIn']?>
+    <?= $_SESSION['username']?> -->
     <div class="promo-img hero-img">
         <div class="promo-text">
             <!-- <?php print_r($_SESSION); ?> -->
@@ -90,7 +93,7 @@ session_start();
                 <img src="pics/browse-appliances.avif" alt="pots">
             </div>
         </div>
-
+        
     </div>
     <div class="carousel-row">
         <div class="carousel-title-div">
@@ -101,27 +104,27 @@ session_start();
             <button class="carousel-arrow carousel-arrow--prev" onclick="moveCarousel(false,'new-carousel','new-carousel-item')">
                 &#8249;
             </button>
-
+            
             <div class="carousel-container new-carousel">
                 <?php
                 $newProducts = fetchProducts($pdo, "newest");
                 include('calculate_price.php');
                 // show 8 newest products in the carousel 
                 foreach (array_slice($newProducts, 0, 8) as $product): {
-                        $product['photo'] = '../admin/' . $product['photo'];
-                        if (!empty($product['photo']) && file_exists($product['photo'])) {
-                            $imgSrc = $product['photo']; // Path to the image
-                        } else {
+                    $product['photo'] = '../admin/' . $product['photo'];
+                    if (!empty($product['photo']) && file_exists($product['photo'])) {
+                        $imgSrc = $product['photo']; // Path to the image
+                    } else {
                             // Default placeholder image if no image is found or the path is incorrect
                             $imgSrc = "img/default.png"; // Ensure this default image exists
                         }
                     }
 
-
+                    
                 ?>
 
-                    <div class="carousel-item new-carousel-item">
-                        <a href="<?= 'product_detail_page.php?id=' . $product['product_id'] ?>">
+<div class="carousel-item new-carousel-item">
+    <a href="<?= 'product_detail_page.php?id=' . $product['product_id'] ?>">
                             <img src="<?php echo $imgSrc; ?>" alt="<?php echo $product['name']; ?>" style="width:150px; height:150px;" />
                         </a>
                         <div class="item-name"><a href="<?= 'product_detail_page.php?id=' . $product['product_id'] ?>"><?php echo $product['name']; ?></a></div>
@@ -133,11 +136,11 @@ session_start();
                                 echo '&nbsp<span>(' . $product['discount_percent'] . '% Off!)</span>';
                                 ?>
                             </div>
+                            <?php endif ?>
+                            <?php if ($product['discount_percent'] == 0): ?>
+                                <div class="item-price">Price: <?php echo $product['price'] . 'Ks'; ?></div>
                         <?php endif ?>
-                        <?php if ($product['discount_percent'] == 0): ?>
-                            <div class="item-price">Price: <?php echo $product['price'] . 'Ks'; ?></div>
-                        <?php endif ?>
-
+                        
                         <!-- Add to cart button -->
                         <form method="post" action="addtocart.php">
                             <input type="hidden" name="id" value="<?php echo $product['product_id']; ?>" />
@@ -148,16 +151,16 @@ session_start();
                             <button name="add_to_cart" name='submit' class="add-cart-btn" onclick="addedToCart()"><i class="fa-solid fa-cart-shopping"></i></button>
                         </form>
                     </div>
+                    
+                    <?php endforeach ?>
+                    
+                </div>
 
-                <?php endforeach ?>
-
-        </div>
-
-        <button class="carousel-arrow carousel-arrow--next" onclick="moveCarousel(true,'new-carousel','new-carousel-item')">
-            &#8250;
-        </button>
-    </div>
-
+                <button class="carousel-arrow carousel-arrow--next" onclick="moveCarousel(true,'new-carousel','new-carousel-item')">
+                    &#8250;
+                </button>
+            </div>
+            
 </div>
 <div class="newsletter-row">
     <div class="newsletter-title">Stay Up to Date With Our Newsletter!</div>
@@ -172,7 +175,7 @@ session_start();
                 <input class="email-submit" type="button" value="Submit" name="newsletter-submit">
             </form>
         </div>
-
+        
     </div>
 </div>
 <div class="line-break"></div>

@@ -1,5 +1,8 @@
 <!-- set page name and import html head -->
 <?php
+session_start();
+session_destroy();
+session_start();
 $pagename = "Log In";
 include("head.php");
 include("connect.php");
@@ -12,9 +15,6 @@ include('calculate_price.php');
 include("navbar.php");
 
 //resetting session if login page is reached
-session_start();
-// session_destroy();
-// session_start();
 ?>
 
 <div class="main">
@@ -39,10 +39,6 @@ session_start();
                     <input type="password" id="password" name="password" placeholder="Your password">
                 </div>
             </div>
-            <!-- <div class="remember row">
-                    <label for="remember">Remember me </label>
-                    <input type="checkbox" checked="checked" id="remember" name="remember"> 
-            </div> -->
             <div class="row submit-row">
                 <input type="submit" name="submit" value="Log in">
             </div>
@@ -50,6 +46,7 @@ session_start();
     </div>
     <div style="text-align: center; margin-bottom: 10px;">
         <?php
+        echo 'Your session ID: ' . session_id();
         $loggedInUser;
         $userType;
         function userExists($email, $pass)
@@ -87,7 +84,7 @@ session_start();
             $email = $_POST['email'];
             $password = $_POST['password'];
             if (userExists($email, $password)) {
-                echo 'Log in successful!<br>';
+                echo 'Log in successful! Welcome, '.$_SESSION['username'].'.<br>';
                 if($_SESSION['user_type'] === 'admin') {
                     echo '<a href="../admin/index.php"><b>Continue to admin dashboard.</b></a><br>';
                 }
@@ -98,6 +95,7 @@ session_start();
             }
         }
         ?>
+        
         <p>Don't have an account?&nbsp;<a href="register_page.php"><b>Create one here.</b></a></p>
     </div>
 </div>

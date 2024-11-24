@@ -76,7 +76,7 @@ include("navbar.php");
                     <input type="hidden" name="id" value="<?php echo $product['product_id']; ?>" />
                     <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
                     <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />
-                    <input type="hidden" name="goTo" value="home" />
+                    <input type="hidden" name="goTo" value="#" />
                     <input type="hidden" name="amountAdd" value="1" />
                     <button name="add_to_cart" name='submit' class="add-cart-btn" onclick="addedToCart()"><i class="fa-solid fa-cart-shopping"></i></button>
                 </form>

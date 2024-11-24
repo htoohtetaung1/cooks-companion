@@ -1,7 +1,7 @@
 <!-- set page name and import html head -->
 <?php
-$pagename = "Your Cart";
 session_start();
+$pagename = "Your Cart";
 include("head.php");
 include("connect.php");
 include("fetch_Product.php");
