@@ -954,3 +954,7 @@ textarea {
         min-width: 25%;
     }
 }
+
+.hero-button > a {
+    color: white;
+}

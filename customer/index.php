@@ -21,7 +21,7 @@ include("navbar.php");
             <!-- <?php print_r($_SESSION); ?> -->
             Get the best products at the best prices! Check out our discounted products!
             <div class="promo-button">
-                <button class="hero-button">View Promos</button>
+                <button class="hero-button"><a href="">View Promos</a></button>
             </div>
         </div>
     </div>
@@ -30,7 +30,7 @@ include("navbar.php");
             <div class="browse-title">The Best Companion A Cook Can Have</div>
             <div class="browse-text">We have curated for you the best products that would serve as your companion in the kitchen.</div>
             <div class="browse-button">
-                <button class="hero-button" id="browsebutton">Browse Products</button>
+                <button class="hero-button" id="browsebutton"><a href="">Browse Products</a></button>
             </div>
         </div>
         <div class="browse-2 browse-row-img">
@@ -45,7 +45,7 @@ include("navbar.php");
                 Our premium cookware combines durability, style,
                 and performance to elevate your cooking experience.
                 Perfect for home cooks and professionals alike! <br>
-                <button class="hero-button">View Cookware</button>
+                <button class="hero-button"><a href="">View Cookware</a></button>
             </div>
             <div class="product-type-img">
                 <img src="pics/browse-cookware.webp" alt="pots">
@@ -59,7 +59,7 @@ include("navbar.php");
                 Our premium cookware combines durability, style,
                 and performance to elevate your cooking experience.
                 Perfect for home cooks and professionals alike! <br>
-                <button class="hero-button">View Knives</button>
+                <button class="hero-button"><a href="">View Knives</a></button>
             </div>
             <div class="product-type-img">
                 <img src="pics/browse-knives.webp" alt="pots">
@@ -73,7 +73,7 @@ include("navbar.php");
                 Our premium cookware combines durability, style,
                 and performance to elevate your cooking experience.
                 Perfect for home cooks and professionals alike! <br>
-                <button class="hero-button">View Accessories</button>
+                <button class="hero-button"><a href="">View Accessories</a></button>
             </div>
             <div class="product-type-img">
                 <img src="pics/browse-accessories.jpg" alt="pots">
@@ -87,7 +87,7 @@ include("navbar.php");
                 Our premium cookware combines durability, style,
                 and performance to elevate your cooking experience.
                 Perfect for home cooks and professionals alike! <br>
-                <button class="hero-button">View Appliances</button>
+                <button class="hero-button"><a href="">View Appliances</a></button>
             </div>
             <div class="product-type-img">
                 <img src="pics/browse-appliances.avif" alt="pots">
