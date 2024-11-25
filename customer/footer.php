@@ -15,12 +15,12 @@
             </div>
         </div>
         <div class="footer-section footer-right">
-            <br>
-            <a href="" class="footer-link">FAQs</a>
-            <br> <a href="" class="footer-link">About Us</a>
-            <br> <a href="" class="footer-link">Privacy Policy</a>
-            <br> <a href="" class="footer-link">Give us Feedback!</a>
-            <br> <a href="" class="footer-link">Shipping</a>
+            <a href="faq_page.php" class="footer-link">FAQs</a>
+            <br> <a href="about_page.php" class="footer-link">About Us</a>
+            <br> <a href="shipping_page.php" class="footer-link">Shipping</a>
+            <br> <a href="return_policy_page.php" class="footer-link">Return Policy</a>
+            <br> <a href="privacy_policy_page.php" class="footer-link">Privacy Policy</a>
+            <br> <a href="feedback_page.php" class="footer-link">Give us Feedback!</a>
         </div>
     </div>
     <div class="copyright">Copyright 2024 b96-htoohtetaung@imu.edu.mm</div>

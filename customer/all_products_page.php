@@ -22,7 +22,7 @@ include("navbar.php");
     <div class="carousel-row">
         <div class="carousel-title-div">
             <div class="carousel-title">New Products</div>
-            <div class="carousel-browse-link"><a href="">Browse All Products ></a></div>
+            <div class="carousel-browse-link"><a href="search_process.php?sort=product_id">Browse All Products ></a></div>
         </div>
         <div class="carousel-group">
             <button class="carousel-arrow carousel-arrow--prev" onclick="moveCarousel(false,'new-carousel','new-carousel-item')">
@@ -89,7 +89,7 @@ include("navbar.php");
 <div class="carousel-row">
         <div class="carousel-title-div">
             <div class="carousel-title">Promo Products</div>
-            <div class="carousel-browse-link"><a href="">Browse All Products ></a></div>
+            <div class="carousel-browse-link"><a href="search_process.php?sort=discount_percent">Browse All Products ></a></div>
         </div>
         <div class="carousel-group">
             <button class="carousel-arrow carousel-arrow--prev" onclick="moveCarousel(false,'promo-carousel','promo-carousel-item')">
@@ -156,7 +156,7 @@ include("navbar.php");
     <div class="carousel-row">
         <div class="carousel-title-div">
             <div class="carousel-title">Cookware</div>
-            <div class="carousel-browse-link"><a href="">Browse All Products ></a></div>
+            <div class="carousel-browse-link"><a href="search_process.php?filter=Cookware">Browse All Products ></a></div>
         </div>
         <div class="carousel-group">
             <button class="carousel-arrow carousel-arrow--prev" onclick="moveCarousel(false,'cc-carousel','cc-carousel-item')">
@@ -223,7 +223,7 @@ include("navbar.php");
     <div class="carousel-row">
         <div class="carousel-title-div">
             <div class="carousel-title">Kitchen Knives</div>
-            <div class="carousel-browse-link"><a href="">Browse All Products ></a></div>
+            <div class="carousel-browse-link"><a href="search_process.php?filter=Kitchen+Knives">Browse All Products ></a></div>
         </div>
         <div class="carousel-group">
             <button class="carousel-arrow carousel-arrow--prev" onclick="moveCarousel(false,'knives-carousel','knives-carousel-item')">
@@ -290,7 +290,7 @@ include("navbar.php");
     <div class="carousel-row">
         <div class="carousel-title-div">
             <div class="carousel-title">Appliances</div>
-            <div class="carousel-browse-link"><a href="">Browse All Products ></a></div>
+            <div class="carousel-browse-link"><a href="search_process.php?filter=Appliances">Browse All Products ></a></div>
         </div>
         <div class="carousel-group">
             <button class="carousel-arrow carousel-arrow--prev" onclick="moveCarousel(false,'app-carousel','app-carousel-item')">
@@ -357,7 +357,7 @@ include("navbar.php");
     <div class="carousel-row" style="margin-bottom: 40px">
         <div class="carousel-title-div">
             <div class="carousel-title">Accessories</div>
-            <div class="carousel-browse-link"><a href="">Browse All Products ></a></div>
+            <div class="carousel-browse-link"><a href="search_process.php?filter=Accessories">Browse All Products ></a></div>
         </div>
         <div class="carousel-group">
             <button class="carousel-arrow carousel-arrow--prev" onclick="moveCarousel(false,'acc-carousel','acc-carousel-item')">

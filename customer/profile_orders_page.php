@@ -46,7 +46,7 @@ include("navbar.php");
             $orders = getOrderByUser($pdo, $_SESSION['user_id']);
             // print_r($orders);
             foreach ($orders as $order): {
-                    $sql = "SELECT photo,product_name,qty,price FROM order_info1 WHERE order_id= :order_id";
+                    $sql = "SELECT product_id,photo,product_name,qty,price FROM order_info1 WHERE order_id= :order_id";
                     $stmt = $pdo->prepare($sql);
                     $stmt->execute([':order_id' => $order['order_id']]);
                     $order_details = $stmt->fetchALL(PDO::FETCH_ASSOC);
@@ -57,61 +57,72 @@ include("navbar.php");
                     <h5> Order ID : <?= $order['order_id'] ?></h5>
                     <?php
                     foreach ($order_details as $orderdetail): {
-                        $total_amount += ($orderdetail['qty'] * $orderdetail['price']);
-                    }
+                            $total_amount += ($orderdetail['qty'] * $orderdetail['price']);
+                        }
                     ?>
-                    <div class="row d-flex">
+                        <div class="row d-flex">
 
-                        <!-- image start -->
-                        <div class="col-md-2 col-sm-4 text-center mt-2">
-                            <img class="bg-light rounded" style="width: 110px; height: 110px; object-fit: contain; margin: auto;"
-                                src="../admin/<?=$orderdetail['photo'] ?>" alt="image">
-                        </div>
-                        <!-- image end -->
-                        <div class="col d-md-flex justify-content-between">
-                            <!-- name and quantity-->
-                            <div class="py-lg-4 fw-bold w-25%">
-                                <p class="text-center"><?= htmlspecialchars($orderdetail['product_name']) ?></p>
-                                <p class="text-center"><?=$orderdetail['price']?>Ks x <?=$orderdetail['qty']?></p>
+                            <!-- image start -->
+                            <div class="col-md-2 col-sm-4 text-center mt-2">
+                                <a href="product_detail_page.php?id=<?= $orderdetail['product_id'] ?>">
+                                    <img class="bg-light rounded" style="width: 110px; height: 110px; object-fit: contain; margin: auto;"
+                                        src="../admin/<?= $orderdetail['photo'] ?>" alt="image">
+                                </a>
                             </div>
-                            <!-- total price -->
-                            <div class="py-lg-5" style="margin-left: auto;">
-                                <p class="text-center"><?= $orderdetail['qty'] * $orderdetail['price'] ?>Ks</p>
+                            <!-- image end -->
+                            <div class="col d-md-flex justify-content-between">
+                                <!-- name and quantity-->
+                                <div class="py-lg-4 fw-bold w-25%">
+                                    <a href="product_detail_page.php?id=<?= $orderdetail['product_id'] ?>">
+                                        <p class="text-center"><?= htmlspecialchars($orderdetail['product_name']) ?></p>
+                                    </a>
+                                    <p class="text-center"><?= $orderdetail['price'] ?>Ks x <?= $orderdetail['qty'] ?></p>
+                                </div>
+                                <!-- total price -->
+                                <div class="py-lg-5" style="margin-left: auto;">
+                                    <p class="text-center"><?= $orderdetail['qty'] * $orderdetail['price'] ?>Ks</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     <?php endforeach ?>
+                    <?php $delivery_fee = 5000;
+                    if ($total_amount > 100000 ) {
+                    $delivery_fee = 0;
+                    } ?>
+                        <div class="row">
+                            <div class="col d-flex justify-content-between">
+                                <!-- tax-->
+                                <div class="py-1 fw-bold w-25%">
+                                    <p class="text-center">Tax:</p>
+                                </div>
+                                <!-- tax -->
+                                <div class="py-1" style="margin-left: auto;">
+                                    <p class="text-center">5%</p>
+                                </div>
+                            </div>
+                        </div>
                     <div class="row">
-                    <div class="col d-flex justify-content-between">
+                        <div class="col d-flex justify-content-between">
                             <!-- delivery-->
                             <div class="py-1 fw-bold w-25%">
                                 <p class="text-center">Delivery Fee:</p>
                             </div>
-                            <!-- tax -->
+                            <!-- delivery -->
                             <div class="py-1" style="margin-left: auto;">
-                                <p class="text-center">5,000Ks</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                    <div class="col d-flex justify-content-between">
-                            <!-- delivery-->
-                            <div class="py-1 fw-bold w-25%">
-                                <p class="text-center">Tax:</p>
-                            </div>
-                            <!-- tax -->
-                            <div class="py-1" style="margin-left: auto;">
-                                <p class="text-center">5%</p>
+                                <p class="text-center"><?=number_format($delivery_fee)?>Ks</p>
                             </div>
                         </div>
                     </div>
                     <hr>
-                    <div class="text-end">
-                        <!-- add delivery and tax -->
-                        <?php $total_amount= $total_amount + 5000 + ($total_amount * 0.05) ?>
-                        Total Amount : <?= number_format($total_amount,0) ?>Ks
-                    </div>
                     
+                    <div class="text-end">
+                        <?php
+                        // add delivery and tax 
+                        $total_amount = $total_amount + $delivery_fee + ($total_amount * 0.05) ?>
+                        Total Amount :&nbsp;&nbsp;&nbsp;&nbsp;
+                        <?= number_format($total_amount, 0) ?>Ks
+                    </div>
+
 
                 </div>
                 <hr>

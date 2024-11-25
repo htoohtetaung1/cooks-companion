@@ -46,7 +46,7 @@ include("navbar.php");
     </div>
     <div style="text-align: center; margin-bottom: 10px;">
         <?php
-        echo 'Your session ID: ' . session_id();
+        // echo 'Your session ID: ' . session_id();
         $loggedInUser;
         $userType;
         function userExists($email, $pass)

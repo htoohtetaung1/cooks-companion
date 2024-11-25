@@ -54,15 +54,15 @@ include("navbar.php");
                             <form action="cart_control.php" method="post" class="row d-flex bg-light mb-2">
                                 <!-- image start -->
                                 <div class="col-md-2 col-sm-4 text-center mt-2">
-                                    <img class="bg-light rounded" style="width: 110px; height: 110px; object-fit: contain; margin: auto;"
-                                        src="../admin/<?= '../admin/' . $product['photo'] ?>" alt="image">
+                                    <a href="product_detail_page.php?id=<?=$product['product_id']?>"><img class="bg-light rounded" style="width: 110px; height: 110px; object-fit: contain; margin: auto;"
+                                        src="../admin/<?= '../admin/' . $product['photo'] ?>" alt="image"></a>
                                 </div>
                                 <!-- image end -->
                                 <div class="col d-md-flex justify-content-between">
                                     <!-- name -->
                                     <div class="py-lg-4 fw-bold w-25%">
                                         <input type="hidden" value="<?= htmlspecialchars($product['product_id']) ?>" name="id">
-                                        <p class="text-center"><?= htmlspecialchars($product['name']) ?></p>
+                                        <p class="text-center"><a href="product_detail_page.php?id=<?=$product['product_id']?>"><?= htmlspecialchars($product['name']) ?></a></p>
                                         <p class="text-center"><?= number_format($product['actualPrice'], 0) ?>Ks</p>
                                     </div>
                                     <!-- buttons -->

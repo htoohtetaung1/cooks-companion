@@ -958,3 +958,29 @@ textarea {
 .hero-button > a {
     color: white;
 }
+
+.feedback-form input {
+    padding: 0px;
+    width: 280px;
+}
+
+.feedback-form > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.other-feedback {
+    padding: 20px;
+    margin-top: 20px;
+    border: 0.5px solid rgba(163, 160, 160, 0.594);
+    max-width: 1000px;
+    border-radius: 15px;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.feedback-box {
+    margin: 20px;
+}

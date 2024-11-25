@@ -1,5 +1,6 @@
 <!-- import header here -->
  <?php   
+ $pageName = "Dashboard";
     include("head.php"); 
  ?>
 <div class="container-xxl position-relative bg-white d-flex p-0">

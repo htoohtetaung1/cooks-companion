@@ -3,8 +3,6 @@
 require_once("head.php");
 require_once("connect.php");
 require_once("data.php");
-$users = getUsers($pdo);
-
 ?>
 <div class="container-xxl position-relative bg-white d-flex p-0">
     <!-- Spinner Start -->
@@ -28,44 +26,42 @@ $users = getUsers($pdo);
             <div class="row g-4">
                 <div class="col-12">
                     <div class="bg-light rounded h-100 p-4">
-                        <h5 class="mb-4">User Table</h5>
-                        <?php echo 'Total Users = ' . count($users) ?>
+                        <h5 class="mb-4">Order Table</h5>
+                        <?php 
+                        $sql = "SELECT * from feedback ORDER BY feedback_id DESC";
+                        $stmt = $pdo->query($sql);
+                        $messages = $stmt->fetchALL(PDO::FETCH_ASSOC);
+                        echo 'Total Feedback = ' . count($messages);
+                        ?>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
                                     <tr>
                                         <?php
-                                        if ($users == null) {
-                                            print '<h3>There are no users!</h3>';
+                                        if ($messages == null) {
+                                            print '<h3>There is no feedback!</h3>';
                                         }
-                                        foreach (array_keys($users[0]) as $title): ?>
+                                        foreach (array_keys($messages[0]) as $title): ?>
                                             <th scope="col"><?= $title ?></th>
-
+                                            
                                         <?php endforeach    ?>
-                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($users as $user): ?>
+                                        
+                                    <?php foreach ($messages as $msg): ?>
                                         <tr>
-                                            <td><?= $user['user_id'] ?></td>
-                                            <td><?= $user['name'] ?></td>
-                                            <td><?= $user['email'] ?></td>
+                                            <td><?= $msg['feedback_id'] ?></td>
+                                            <td><?= $msg['name'] ?></td>
+                                            <td><?= $msg['email'] ?></td>
+                                            <td><?= $msg['subject'] ?></td>
                                             <td>
                                                 <p style="max-height: 120px; overflow-y: scroll;">
-                                                    <?= $user['address'] ?>
+                                                    <?= $msg['message'] ?>
                                                 </p>
                                             </td>
-                                            <td><?= $user['phone'] ?></td>
-                                            <td><?= $user['user_type'] ?></td>
-                                            <td><?= $user['password'] ?></td>
-
-                                        <td>
-                                                <form>
-                                                    <a href=<?= "user_edit.php?id=" . $user['user_id'] ?> class="btn btn-primary"><i class="fa-regular fa-pen-to-square"></i></a>
-                                                    <a href=<?= "user_delete.php?id=" . $user['user_id'] ?> class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
-                                                </form>
-                                            </td>
+                                            <td><?= $msg['rating'] ?></td>
+                                           
                                         </tr>
                                     <?php endforeach ?>
                                     <tr>

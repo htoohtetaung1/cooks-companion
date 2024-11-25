@@ -25,17 +25,17 @@
             <button class="nav-link-anchor dropdown" onclick="dropdownNavLinks()">Browse&#x25BC</button>
             <div class="dropdown-navlinks" id="dropdown-navlinks">
                 <a href="all_products_page.php">All Products</a>
-                <a href="">Cookware</a>
-                <a href="">Kitchen Knives</a>
-                <a href="">Accessories</a>
-                <a href="">Appliances</a>
+                <a href="search_process.php?filter=Cookware">Cookware</a>
+                <a href="search_process.php?filter=Kitchen+Knives">Kitchen Knives</a>
+                <a href="search_process.php?filter=Accessories">Accessories</a>
+                <a href="search_process.php?filter=Appliances">Appliances</a>
             </div>
         </div>
 
 
-        <div class="nav-link large-font"><a class="nav-link-anchor" href="">Promotions</a></div>
-        <div class="nav-link large-font"><a class="nav-link-anchor" href="">FAQs</a></div>
-        <div class="nav-link large-font"><a class="nav-link-anchor" href="">About Us</a></div>
+        <div class="nav-link large-font"><a class="nav-link-anchor" href="search_process.php?sort=discount_percent">Promotions</a></div>
+        <div class="nav-link large-font"><a class="nav-link-anchor" href="faq_page.php">FAQs</a></div>
+        <div class="nav-link large-font"><a class="nav-link-anchor" href="about_page.php">About Us</a></div>
     </div>
     <div class="nav-icons-div">
         <div class="nav-icon"><a href="check_login.php"><img src="pics/user-icon.png" width="23px" alt=""></a></div>
@@ -56,26 +56,25 @@
                     <li>
                         <a href="all_products_page.php">All Products</a>
                     </li>
-
                     <li>
-                        <a href="">Cookware</a>
+                        <a href="search_process.php?filter=Cookware">Cookware</a>
                     </li>
-
+                    
                     <li>
-                        <a href="">Kitchen Knives</a>
-                    </li>
-                    <li>
-                        <a href="">Accessories</a>
+                        <a href="search_process.php?filter=Kitchen+Knives">Kitchen Knives</a>
                     </li>
                     <li>
-                        <a href="">Appliances</a>
+                        <a href="search_process.php?filter=Accessories">Accessories</a>
+                    </li>
+                    <li>
+                        <a href="search_process.php?filter=Appliances">Appliances</a>
                     </li>
                 </ul>
 
             </div>
-            <div class="nav-link large-font droplink"><a class="nav-link-anchor" href="">Promotions</a></div>
-            <div class="nav-link large-font droplink"><a class="nav-link-anchor" href="">FAQs</a></div>
-            <div class="nav-link large-font droplink"><a class="nav-link-anchor" href="">About Us</a></div>
+            <div class="nav-link large-font droplink"><a class="nav-link-anchor" href="search_process.php?sort=discount_percent">Promotions</a></div>
+            <div class="nav-link large-font droplink"><a class="nav-link-anchor" href="faq_page.php">FAQs</a></div>
+            <div class="nav-link large-font droplink"><a class="nav-link-anchor" href="about_page.php">About Us</a></div>
         </div>
     </div>
 

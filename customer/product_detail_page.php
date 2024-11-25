@@ -5,18 +5,24 @@ include("data.php");
 include("calculate_price.php");
 $id = $_GET['id'];
 $product = getSpecificProduct($pdo, $id);
+$ptype = $product['product_type'];
 $pagename = $product['name'];
 include("head.php");
 ?>
 
 <div class="main">
-    <div class="product-detail-container">
+    <div class="product-detail-container" style="border: 0.1px solid #0000001d"> 
         <div class="product-detail1">
             <img src="../admin/<?= $product['photo'] ?>" alt="" class="product-img">
         </div>
         <div class="product-detail2">
             <div class="pd-name">
                 <h2><?= $product['name'] ?></h2>
+            </div>
+            <div class="pd-stock">
+                <h5><a href="search_process.php?filter=<?= $ptype ?>">
+                    <u>Category : <?= $ptype ?>
+                </a></u></h5>
             </div>
             <div class="pd-stock">
                 <h4>In Stock : &nbsp; <?= $product['qty'] ?></h4>
@@ -42,11 +48,11 @@ include("head.php");
                 <?= $product['description'] ?>
             </div>
             <div class="pd-add">
-                    <form action="addtocart.php" method="post" class="pd-add-form">
-                        <input type="number" value="1" min="1" name="amountAdd" onKeyDown="return false">
-                        <input type="hidden" value="<?= $product['product_id'] ?>" name="id">
-                        <input type="submit" name="submit" class="hero-button" value="Add to Cart"></input>
-                    </form>
+                <form action="addtocart.php" method="post" class="pd-add-form">
+                    <input type="number" value="1" min="1" name="amountAdd" onKeyDown="return false">
+                    <input type="hidden" value="<?= $product['product_id'] ?>" name="id">
+                    <input type="submit" name="submit" class="hero-button" value="Add to Cart"></input>
+                </form>
             </div>
         </div>
     </div>

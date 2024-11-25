@@ -76,10 +76,11 @@ include("navbar.php");
         </div>
     </div>
 </div>
+
 <?php
 try {
     if (isset($_POST['submit'])) {
-
+        
         $user_id = $_SESSION['user_id'];
         $name = $_POST['name'];
         $email = $_POST['email'];
@@ -87,8 +88,8 @@ try {
         $address = $_POST['address'];
         $pass1 = $_POST['password'];
         $pass2 = $_POST['cpassword'];
-
-
+        
+        
         //if new passwords are entered check them and update with password
         if (!(empty($pass1) && empty($pass1))) {
             echo '<font color="red"><b>';
@@ -110,8 +111,8 @@ try {
                 password = :password
                 WHERE user_id = :user_id";
 
-                $stmt = $pdo->prepare($sql);
-                $stmt->execute([
+$stmt = $pdo->prepare($sql);
+$stmt->execute([
                     ':user_id' => $user_id,
                     ':name' => $name,
                     ':email' => $email,
@@ -119,11 +120,11 @@ try {
                     ':address' => $address,
                     ':password' => $pass1,
                 ]);
-
+                
                 echo '<div class="text-center"><h5>Profile Updated Successfully! </h5><div>';
             }
         } else if ((empty($pass1) && empty($pass1))) {
-
+            
             //if new passwords are not entered update without them
             $sql = "UPDATE users SET
                 name = :name,
@@ -132,7 +133,7 @@ try {
                 address = :address
                 WHERE user_id = :user_id";
 
-            $stmt = $pdo->prepare($sql);
+$stmt = $pdo->prepare($sql);
             $stmt->execute([
                 ':user_id' => $user_id,
                 ':name' => $name,
@@ -148,7 +149,6 @@ try {
 }
 ?>
 
-<!-- import footer -->
-<?php
-include("footer.php");
+<?php 
+include('footer.php');
 ?>

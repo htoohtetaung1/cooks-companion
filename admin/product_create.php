@@ -33,7 +33,7 @@ include("data.php");
             <div class="row g-4">
                 <div class="col-sm-12 col-xl-12 px-lg-5">
                     <div class="bg-light rounded h-100 p-4">
-                        <h6 class="mb-4">Create Products</h6>
+                        <h6 class="mb-4">Add Product</h6>
                         <form method="post" action="product_insert.php" enctype="multipart/form-data">
                             <div class="mb-3">
                                 <label for="product_name" class="form-label">Name</label>
@@ -86,7 +86,7 @@ include("data.php");
             <div class="bg-light rounded-top p-4">
                 <div class="row">
                     <div class="col-12 col-sm-6 text-center text-sm-start">
-                        &copy; <a href="#">Your Site Name</a>, All Right Reserved.
+                        &copy; <a href="#">2024 Cook's Companion</a>, All Right Reserved.
                     </div>
                 </div>
             </div>

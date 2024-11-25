@@ -1,5 +1,8 @@
 <!-- set page name and import html head -->
 <?php
+session_start();
+session_destroy();
+session_start();
 $pagename = "Register";
 include("head.php");
 include("connect.php");
@@ -17,9 +20,9 @@ include("navbar.php");
 <div class="main">
   <div class="register-greet">
     <h2>Create Your Cook's Companion Account</h2>
-    <?php 
+    <!-- <?php 
       getUsers($pdo);
-    ?> 
+    ?>  -->
   </div>
   <div class="register-div">
     <form action="#" method="post">
