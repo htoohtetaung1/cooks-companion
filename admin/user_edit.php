@@ -1,5 +1,6 @@
 <!-- import header here -->
 <?php
+$pageName = "Edit User";
 include("head.php");
 include("connect.php");
 include("data.php");
@@ -63,8 +64,12 @@ $user = getSpecificUser($pdo, $id);
                                 <input type="number" name="phone" class="form-control" id="phone" value="<?= htmlspecialchars($user['phone']) ?>">
                             </div>
                             <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="text" name="password" class="form-control" id="password" value="<?= htmlspecialchars($user['password']) ?>">
+                            </div>
+                            <div class="mb-3">
                                 <label for="user_type" class="form-label">User Type</label>
-                                <select name="user_type" id="user_type" class="custom-select">
+                                <select name="user_type" id="user_type" class="custom-select form-select">
                                     <option value="customer">customer</option>
                                     <option value="admin">admin</option>
                                 </select>
@@ -87,6 +92,7 @@ $user = getSpecificUser($pdo, $id);
                 $email = $_POST['email'];
                 $address = $_POST['address'];
                 $phone = $_POST['phone'];
+                $password = $_POST['password'];
                 $user_type = $_POST['user_type'];
 
                 $sql = "UPDATE users SET 
@@ -94,6 +100,7 @@ $user = getSpecificUser($pdo, $id);
                 email = :email,
                 address = :address,
                 phone = :phone,
+                password = :password,
                 user_type = :user_type
                 WHERE user_id = :user_id";
 
@@ -103,6 +110,7 @@ $user = getSpecificUser($pdo, $id);
                     ':email' => $email,
                     ':address' => $address,
                     ':phone' => $phone,
+                    ':password' => $password,
                     ':user_type' => $user_type,
                     ':user_id' => $user_id
                 ]);

@@ -4,6 +4,9 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
     <title><?php print $pageName?></title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
 
     <!-- icons -->
     <!-- import fontawsome here -->

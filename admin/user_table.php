@@ -1,5 +1,6 @@
 <!-- import header here -->
 <?php
+$pageName = "User Table";
 require_once("head.php");
 require_once("connect.php");
 require_once("data.php");

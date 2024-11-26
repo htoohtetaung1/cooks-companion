@@ -1,5 +1,6 @@
 <!-- import header here -->
 <?php
+$pageName = "Add Product";
 include("head.php");
 include("connect.php");
 include("data.php");
@@ -42,7 +43,7 @@ include("data.php");
                             <div class="mb-3">
                                 <label for="product_type" class="form-label">Product Type</label>
                                 <br>
-                                <select name="ptype" id="product_type" class="custom-select">
+                                <select name="ptype" id="product_type" class="form-select">
                                         <option value="Kitchen Knives">Kitchen Knives</option>
                                         <option value="Cookware">Cookware</option>
                                         <option value="Accessories">Accessories</option>

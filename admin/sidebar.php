@@ -1,7 +1,7 @@
-<div class="sidebar pe-4 pb-3">
-    <nav class="navbar bg-light navbar-light">
+<div class="sidebar bg-dp pe-4 pb-3">
+    <nav class="navbar bg-dp navbar-light">
         <a href="" class="navbar-brand mx-4 mb-3">
-            <div class="text-primary"><b>
+            <div class="text-primary" style="color:white;"><b>
                 Cook's Companion
             </b>
         </div>
@@ -18,13 +18,13 @@
                 <span>Admin</span>
             </div> -->
         </div>
-        <div class="navbar-nav w-100">
-            <a href="index.php" class="nav-item nav-link"><i class="fa-solid fa-gauge"></i>Dashboard</a>
-            <a href="product_create.php" class="nav-item nav-link"><i class="fa-solid fa-plus"></i>ADD Products</a>
-            <a href="product_table.php" class="nav-item nav-link"><i class="fa-solid fa-table"></i>Product Table</a>
-            <a href="user_table.php" class="nav-item nav-link"><i class="fa-solid fa-table"></i>User Table</a>
-            <a href="order_table.php" class="nav-item nav-link"><i class="fa-solid fa-table"></i>Order Table</a>
-            <a href="customer_feedback.php" class="nav-item nav-link"><i class="fa-regular fa-comment"></i>View Feedback</a>
+        <div class="navbar-nav w-100 bg-dp" style="color: white;">
+            <a href="index.php" class="nav-item nav-link">&nbsp;<i class="fa-solid fa-gauge"></i>Dashboard</a>
+            <a href="product_create.php" class="nav-item nav-link">&nbsp;<i class="fa-solid fa-plus"></i>Add Products</a>
+            <a href="product_table.php" class="nav-item nav-link">&nbsp;<i class="fa-solid fa-table"></i>Product Table</a>
+            <a href="user_table.php" class="nav-item nav-link">&nbsp;<i class="fa-solid fa-table"></i>User Table</a>
+            <a href="order_table.php" class="nav-item nav-link">&nbsp;<i class="fa-solid fa-table"></i>Order Table</a>
+            <a href="customer_feedback.php" class="nav-item nav-link">&nbsp;<i class="fa-regular fa-comment"></i>View Feedback</a>
         </div>
     </nav>
 </div>

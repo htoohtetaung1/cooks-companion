@@ -1,5 +1,6 @@
 <!-- import header here -->
 <?php
+$pageName = "Edit Product";
 include("head.php");
 include("connect.php");
 include("data.php");

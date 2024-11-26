@@ -47,11 +47,11 @@ function getOrders($pdo)
 }
 
 function getSpecificOrder($pdo, $id){
-    $sql="SELECT * FROM users WHERE user_id= :id";
+    $sql="SELECT * FROM orders WHERE order_id= :id";
     $stmt=$pdo->prepare($sql);
     $stmt->execute([':id'=> $id]);
-    $user =$stmt->fetch(PDO::FETCH_ASSOC);
-    return $user;
+    $order =$stmt->fetch(PDO::FETCH_ASSOC);
+    return $order;
 }
 
 

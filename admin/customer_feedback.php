@@ -1,5 +1,6 @@
 <!-- import header here -->
 <?php
+$pageName='View Feedback';
 require_once("head.php");
 require_once("connect.php");
 require_once("data.php");
@@ -26,13 +27,45 @@ require_once("data.php");
             <div class="row g-4">
                 <div class="col-12">
                     <div class="bg-light rounded h-100 p-4">
-                        <h5 class="mb-4">Order Table</h5>
+                        <h5 class="mb-4">Customer Feedback </h5>
                         <?php 
-                        $sql = "SELECT * from feedback ORDER BY feedback_id DESC";
+                        $sql = "SELECT * from feedback";
+                        if (isset($_GET['sort'])) {
+                            switch ($_GET['sort']) {
+                                case 'newest':
+                                    $sql .= ' ORDER BY feedback_id DESC';
+                                    break;
+                                case 'oldest':
+                                    $sql .= ' ORDER BY feedback_id';
+                                    break;
+                                case 'lowest_rating':
+                                    $sql .= ' ORDER BY rating';
+                                    break;
+                                case 'highest_rating':
+                                    $sql .= ' ORDER BY rating desc';
+                                    break;
+                            }
+                        }
                         $stmt = $pdo->query($sql);
                         $messages = $stmt->fetchALL(PDO::FETCH_ASSOC);
+
+?>
+
+                        <?php
                         echo 'Total Feedback = ' . count($messages);
                         ?>
+                        <div>
+                            <form action="#" method="GET">
+                                <label for="sort">Sort By:</label>
+                                <select name="sort" class="form-control" id="sort" onchange="this.form.submit()">
+                                    <option value="NULL">--choose sort order--</option>
+                                    <option value="highest_rating">Highest Rating</option>
+                                    <option value="lowest_rating">Lowest Rating</option>
+                                    <option value="newest">Newest</option>
+                                    <option value="oldest">Oldest</option>
+                                </select>
+                            </form>
+                        </div>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
@@ -40,11 +73,15 @@ require_once("data.php");
                                         <?php
                                         if ($messages == null) {
                                             print '<h3>There is no feedback!</h3>';
-                                        }
-                                        foreach (array_keys($messages[0]) as $title): ?>
-                                            <th scope="col"><?= $title ?></th>
-                                            
-                                        <?php endforeach    ?>
+                                        }?>
+                                            <th scope="col">Feedback ID</th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Subject</th>
+                                            <th scope="col">Message</th>
+                                            <th scope="col">Rating</th>
+                                            <th scope="col">Action</th>
+                                           
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -61,6 +98,11 @@ require_once("data.php");
                                                 </p>
                                             </td>
                                             <td><?= $msg['rating'] ?></td>
+                                            <td>
+                                            <form>
+                                                <a onClick="javascript: return confirm('Please confirm deletion');" href=<?= "feedback_delete.php?id=" . $msg['feedback_id'] ?> class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                                            </form>
+                                            </td>
                                            
                                         </tr>
                                     <?php endforeach ?>

@@ -1,6 +1,6 @@
 /********** Template CSS **********/
 :root {
-    --primary: #2ec4b6;
+    --primary: #3f334d;
     --light: #F3F6F9;
     --dark: #191C24;
     --white: #FFFFFF;
@@ -9,6 +9,10 @@
     --grey: #7d8491;
     --lgrey: #c0c5c1;
     --offwhite: #eaf0ce;
+}
+
+* {
+    font-family: "Aleo", serif;
 }
 
 .back-to-top {
@@ -130,7 +134,7 @@
 /*** Navbar ***/
 .sidebar .navbar .navbar-nav .nav-link {
     padding: 7px 20px;
-    color: var(--dark);
+    color: white;
     font-weight: 500;
     border-left: 3px solid var(--light);
     border-radius: 0 30px 30px 0;
@@ -144,13 +148,15 @@
     border-color: var(--primary);
 }
 
+
+
 .sidebar .navbar .navbar-nav .nav-link i {
     width: 40px;
     height: 40px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: #FFFFFF;
+    background: #614a7b;
     border-radius: 40px;
 }
 
@@ -297,3 +303,11 @@
     color: #000;
     cursor: pointer;
   }
+
+.nav-link:hover {
+    color:#746486;
+}
+
+.bg-dp {
+    background-color: #3f334d;
+}
