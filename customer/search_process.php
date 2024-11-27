@@ -26,15 +26,14 @@ if (empty($search)) {
 
 if (!empty($search)) {
     $sql .= " WHERE " . "name LIKE '%" . $search . "%'";
-
 }
 
 
 if (!empty($filter)) {
-    if(empty($search)) {
+    if (empty($search)) {
         $sql .= " WHERE product_type='" . $filter . "'";
     } else
-    $sql .= " AND product_type='" . $filter . "'";
+        $sql .= " AND product_type='" . $filter . "'";
 }
 
 if ($sort === 'name') {
@@ -43,9 +42,47 @@ if ($sort === 'name') {
     $sql .= " ORDER BY " . $sort . " DESC";
 }
 
+
 echo $sql;
 $stmt = $pdo->query($sql);
 $products = $stmt->fetchALL(PDO::FETCH_ASSOC);
+// searching categories
+switch ($search) {
+    case 'kitchen knives':
+    case 'kitchen knife':
+    case 'knife':
+    case 'knive':
+    case 'knives': {
+            echo 'type match';
+            $products = getProductsByType($pdo, 'knives');
+            break;
+        }
+
+    case 'pots':
+    case 'pans':
+    case 'cookware': {
+            echo 'type match';
+            $products = getProductsByType($pdo, 'cookware');
+            break;
+        }
+    case 'appliances':
+    case 'appliance':
+    case 'kitchen appliances':
+    case 'kitchen appliance': {
+            echo 'type match';
+            $products = getProductsByType($pdo, 'appliances');
+            break;
+        }
+    case 'accessories':
+    case 'accessory':
+    case 'kitchen accessories':
+    case 'kitchen accessory': {
+            echo 'type match';
+            $products = getProductsByType($pdo, 'accessories');
+            break;
+        }
+    default:
+}
 $_SESSION['search_result'] = $products;
 $_SESSION['last_search'] = $search;
 header('Location: search_page.php');

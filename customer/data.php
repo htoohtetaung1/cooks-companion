@@ -32,9 +32,21 @@ function getUsers($pdo)
     return $users;
 }
 
-function getOrderByUser($pdo, $user_id)
+function getOrderByUser($pdo, $user_id,$sort)
 {
+    
     $sql = "SELECT order_id FROM orders WHERE user_id= :user_id";
+    switch ($sort) {
+        case '':
+        case 'newest':{
+            $sql .= " ORDER BY order_id DESC";
+            break;
+        }
+        case 'oldest':{
+            $sql .= " ORDER BY order_id";
+            break;
+        }
+    }
     $stmt = $pdo->prepare($sql);
     $stmt->execute([':user_id' => $user_id]);
     $orders = $stmt->fetchALL(PDO::FETCH_ASSOC);

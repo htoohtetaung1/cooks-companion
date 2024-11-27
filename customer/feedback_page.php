@@ -11,7 +11,7 @@ include("navbar.php");
 ?>
 
 <div class="main">
-    <div style="padding: 30px; text-wrap: wrap;">
+    <div style="padding: 30px; text-wrap: wrap;max-width: 1000px;text-align:justify;">
         <h1>We Value Your Feedback!</h1> <br>
         <p>
             At <strong>Cook's Companion</strong>, we are always looking for ways to improve your shopping experience.

@@ -43,8 +43,21 @@ include("navbar.php");
         <div class="profile-content">
             <h4>Your Orders</h4>
             <?php
-            $orders = getOrderByUser($pdo, $_SESSION['user_id']);
-            // print_r($orders);
+            $sort = '';
+            if (isset($_GET['sort'])) {
+                $sort = $_GET['sort'];
+            }
+            $orders = getOrderByUser($pdo, $_SESSION['user_id'], $sort);
+            // print_r($orders);?>
+            <form action="#" method="GET">
+                                <label for="sort">Sort By:</label>
+                                <select name="sort" class="form-control" id="sort" onchange="this.form.submit()">
+                                    <option value="NULL">--choose sort order--</option>
+                                    <option value="newest">Newest</option>
+                                    <option value="oldest">Oldest</option>
+                                </select>
+                            </form>
+            <?php
             foreach ($orders as $order): {
                     $sql = "SELECT product_id,photo,product_name,qty,price FROM order_info1 WHERE order_id= :order_id";
                     $stmt = $pdo->prepare($sql);

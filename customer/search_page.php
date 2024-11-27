@@ -23,7 +23,7 @@ include("navbar.php");
             <div class="filter-inputs">
                 <label for="filter">Category:</label>
                 <select name="filter" id="filter">
-                    <option hidden disabled selected value> -- select an option -- </option>
+                    <option value="">All Products</option>
                     <option value="Cookware">Cookware</option>
                     <option value="Kitchen Knives">Kitchen Knives</option>
                     <option value="Accessories">Accessories</option>
@@ -72,14 +72,22 @@ include("navbar.php");
                 <?php endif ?>
 
                 <!-- Add to cart button -->
-                <form method="post" action="addtocart.php">
-                    <input type="hidden" name="id" value="<?php echo $product['product_id']; ?>" />
-                    <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
-                    <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />
-                    <input type="hidden" name="goTo" value="#" />
-                    <input type="hidden" name="amountAdd" value="1" />
-                    <button name="add_to_cart" name='submit' class="add-cart-btn" onclick="addedToCart()"><i class="fa-solid fa-cart-shopping"></i></button>
-                </form>
+                <form method="post" action="addtocart.php" class="add-to-cart-form">
+                            <input type="hidden" name="id" value="<?php echo $product['product_id']; ?>" />
+                            <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
+                            <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />
+                            <input type="hidden" name="goTo" value="#" />
+                            <input type="hidden" name="amountAdd" value="1" />
+                            <button name="add_to_cart" name='submit' class="add-cart-btn show-popup-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <!-- Overlay -->
+                            <div class="popup-overlay"></div>
+            
+                            <!-- Popup -->
+                            <div class="popup" id="popup">
+                                <p>Added to Cart!</p>
+                                <button class="close-popup-btn hero-button">Close</button>
+                            </div>
+                        </form>
             </div>
         <?php endforeach ?>
     </div>

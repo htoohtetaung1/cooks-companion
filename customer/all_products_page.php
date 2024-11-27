@@ -65,13 +65,21 @@ include("navbar.php");
                         <?php endif ?>
 
                         <!-- Add to cart button -->
-                        <form method="post" action="addtocart.php">
+                        <form method="post" action="addtocart.php" class="add-to-cart-form">
                             <input type="hidden" name="id" value="<?php echo $product['product_id']; ?>" />
                             <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
                             <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />
                             <input type="hidden" name="goTo" value="products" />
                             <input type="hidden" name="amountAdd" value="1" />
-                            <button name="add_to_cart" name='submit' class="add-cart-btn" onclick="addedToCart()"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <button name="add_to_cart" name='submit' class="add-cart-btn show-popup-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <!-- Overlay -->
+                            <div class="popup-overlay"></div>
+            
+                            <!-- Popup -->
+                            <div class="popup" id="popup">
+                                <p>Added to Cart!</p>
+                                <button class="close-popup-btn hero-button">Close</button>
+                            </div>
                         </form>
                     </div>
 
@@ -85,8 +93,8 @@ include("navbar.php");
         </div>
     </div>
 
-<!-- promo carousel -->
-<div class="carousel-row">
+    <!-- promo carousel -->
+    <div class="carousel-row">
         <div class="carousel-title-div">
             <div class="carousel-title">Promo Products</div>
             <div class="carousel-browse-link"><a href="search_process.php?sort=discount_percent">Browse All Products ></a></div>
@@ -132,13 +140,21 @@ include("navbar.php");
                         <?php endif ?>
 
                         <!-- Add to cart button -->
-                        <form method="post" action="addtocart.php">
+                        <form method="post" action="addtocart.php" class="add-to-cart-form">
                             <input type="hidden" name="id" value="<?php echo $product['product_id']; ?>" />
                             <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
                             <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />
                             <input type="hidden" name="goTo" value="products" />
                             <input type="hidden" name="amountAdd" value="1" />
-                            <button name="add_to_cart" name='submit' class="add-cart-btn" onclick="addedToCart()"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <button name="add_to_cart" name='submit' class="add-cart-btn show-popup-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <!-- Overlay -->
+                            <div class="popup-overlay"></div>
+            
+                            <!-- Popup -->
+                            <div class="popup" id="popup">
+                                <p>Added to Cart!</p>
+                                <button class="close-popup-btn hero-button">Close</button>
+                            </div>
                         </form>
                     </div>
 
@@ -199,13 +215,21 @@ include("navbar.php");
                         <?php endif ?>
 
                         <!-- Add to cart button -->
-                        <form method="post" action="addtocart.php">
+                        <form method="post" action="addtocart.php" class="add-to-cart-form">
                             <input type="hidden" name="id" value="<?php echo $product['product_id']; ?>" />
                             <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
                             <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />
                             <input type="hidden" name="goTo" value="products" />
                             <input type="hidden" name="amountAdd" value="1" />
-                            <button name="add_to_cart" name='submit' class="add-cart-btn" onclick="addedToCart()"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <button name="add_to_cart" name='submit' class="add-cart-btn show-popup-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <!-- Overlay -->
+                            <div class="popup-overlay"></div>
+            
+                            <!-- Popup -->
+                            <div class="popup" id="popup">
+                                <p>Added to Cart!</p>
+                                <button class="close-popup-btn hero-button">Close</button>
+                            </div>
                         </form>
                     </div>
 
@@ -266,13 +290,21 @@ include("navbar.php");
                         <?php endif ?>
 
                         <!-- Add to cart button -->
-                        <form method="post" action="addtocart.php">
+                        <form method="post" action="addtocart.php" class="add-to-cart-form">
                             <input type="hidden" name="id" value="<?php echo $product['product_id']; ?>" />
                             <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
                             <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />
                             <input type="hidden" name="goTo" value="products" />
                             <input type="hidden" name="amountAdd" value="1" />
-                            <button name="add_to_cart" name='submit' class="add-cart-btn" onclick="addedToCart()"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <button name="add_to_cart" name='submit' class="add-cart-btn show-popup-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <!-- Overlay -->
+                            <div class="popup-overlay"></div>
+            
+                            <!-- Popup -->
+                            <div class="popup" id="popup">
+                                <p>Added to Cart!</p>
+                                <button class="close-popup-btn hero-button">Close</button>
+                            </div>
                         </form>
                     </div>
 
@@ -333,13 +365,21 @@ include("navbar.php");
                         <?php endif ?>
 
                         <!-- Add to cart button -->
-                        <form method="post" action="addtocart.php">
+                        <form method="post" action="addtocart.php" class="add-to-cart-form">
                             <input type="hidden" name="id" value="<?php echo $product['product_id']; ?>" />
                             <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
                             <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />
                             <input type="hidden" name="goTo" value="products" />
                             <input type="hidden" name="amountAdd" value="1" />
-                            <button name="add_to_cart" name='submit' class="add-cart-btn" onclick="addedToCart()"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <button name="add_to_cart" name='submit' class="add-cart-btn show-popup-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <!-- Overlay -->
+                            <div class="popup-overlay"></div>
+            
+                            <!-- Popup -->
+                            <div class="popup" id="popup">
+                                <p>Added to Cart!</p>
+                                <button class="close-popup-btn hero-button">Close</button>
+                            </div>
                         </form>
                     </div>
 
@@ -400,13 +440,21 @@ include("navbar.php");
                         <?php endif ?>
 
                         <!-- Add to cart button -->
-                        <form method="post" action="addtocart.php">
+                        <form method="post" action="addtocart.php" class="add-to-cart-form">
                             <input type="hidden" name="id" value="<?php echo $product['product_id']; ?>" />
                             <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
                             <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />
                             <input type="hidden" name="goTo" value="products" />
                             <input type="hidden" name="amountAdd" value="1" />
-                            <button name="add_to_cart" name='submit' class="add-cart-btn" onclick="addedToCart()"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <button name="add_to_cart" name='submit' class="add-cart-btn show-popup-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <!-- Overlay -->
+                            <div class="popup-overlay"></div>
+            
+                            <!-- Popup -->
+                            <div class="popup" id="popup">
+                                <p>Added to Cart!</p>
+                                <button class="close-popup-btn hero-button">Close</button>
+                            </div>
                         </form>
                     </div>
 

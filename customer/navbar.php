@@ -46,10 +46,20 @@
             <img src="pics/hamburger-icon.png" alt="" width="23px"></a>
         </button>
         <div class="dropdown-content" id="dropdown-content">
-            <form action="" class="nav-search-form dropsearch">
-                <input type="text" placeholder="Search" class="nav-search-input dropsearch-input" name="nav-search">
-                <button><i class="fa-solid fa-magnifying-glass"></i></button>
-            </form>
+        <form action="search_process.php" method="GET" class="nav-search-form">
+            <input type="hidden" name="filter" value="">
+            <input type="hidden" name="sort" value="price">
+            <input type="text" placeholder="Search" list="categories" class="nav-search-input dropsearch-input" name="search">
+            <datalist id="categories">
+                <option value="Kitchen Knives">
+                <option value="Cookware">
+                <option value="Appliances">
+                <option value="Accessories">
+            </datalist>
+            <button class="search-button" name="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+
+            <!-- <input type="button" class="search-button" src="pics/search-icon.png" width="30px"> -->
+        </form>
             <div class="nav-link large-font droplink">
                 <ul>
                     <span style="text-decoration:underline">Browse</span>

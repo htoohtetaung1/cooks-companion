@@ -20,9 +20,9 @@ function moveCarousel(positive = true,containerID,itemID) {
   
 }
 
-// function addedToCart() {
-//   alert("added to cart!");
-// }
+function addedToCart() {
+
+}
 
 function refreshForm() {
   alert('called');
@@ -34,37 +34,38 @@ function resetSearch() {
 }
 
 
+document.addEventListener('DOMContentLoaded', function () {
+  const forms = document.querySelectorAll('.add-to-cart-form');
 
-const showPopupBtn = document.getElementById('showPopupBtn');
-const closePopupBtn = document.getElementById('closePopupBtn');
-const popup = document.getElementById('popup');
-const overlay = document.getElementById('popupOverlay');
-const form = document.getElementById('addToCartForm');
+  forms.forEach((form) => {
+      const showPopupBtn = form.querySelector('.show-popup-btn');
+      const closePopupBtn = form.querySelector('.close-popup-btn');
+      const popup = form.querySelector('.popup');
+      const overlay = form.querySelector('.popup-overlay');
 
-showPopupBtn.addEventListener('click', function(event) {
-  event.preventDefault();  // Prevent form submission
-  
-  popup.classList.add('show');
-  overlay.classList.add('show');
-  
-  // Submit the form after a short delay to show the popup
-  setTimeout(function() {
-      form.submit();
-  }, 5000);  // Adjust delay as needed
+      // Show popup
+      showPopupBtn.addEventListener('click', function (event) {
+          event.preventDefault(); // Prevent form submission
+          
+          popup.classList.add('show');
+          overlay.classList.add('show');
+
+          
+          setTimeout(() => {
+              form.submit();
+          }, 2000);
+      });
+
+      // Close popup
+      closePopupBtn.addEventListener('click', () => {
+          popup.classList.remove('show');
+          overlay.classList.remove('show');
+      });
+
+      // Close popup when clicking the overlay
+      overlay.addEventListener('click', () => {
+          popup.classList.remove('show');
+          overlay.classList.remove('show');
+      });
+  });
 });
-
-// Close popup
-closePopupBtn.addEventListener('click', () => {
-  popup.classList.remove('show');
-  overlay.classList.remove('show');
-});
-
-// Close popup when clicking outside of it
-overlay.addEventListener('click', () => {
-  popup.classList.remove('show');
-  overlay.classList.remove('show');
-});
-
-
-
-
