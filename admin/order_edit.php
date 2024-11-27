@@ -190,7 +190,7 @@ $order = getSpecificOrder($pdo, $id);
                                 foreach ($order_details as $order_detail):
 
                                 ?>
-                                    <tr>
+                                    <tr class="text-end">
 
                                         <td></td>
                                         <td><?= $order_detail['ordered_items_id'] ?></td>
@@ -201,7 +201,7 @@ $order = getSpecificOrder($pdo, $id);
                                             <?= $order_detail['product_name'] ?>
                                         </td>
                                         <td>
-                                            <input class="form-control" type="number" name="qty" id="qty" value="<?= $order_detail['qty'] ?>" min="1">
+                                            <?= $order_detail['qty'] ?>
                                         </td>
                                         <td>
                                             <form action="" method="GET">
@@ -225,7 +225,7 @@ $order = getSpecificOrder($pdo, $id);
                                 </tbody>
                             </table>
                             <div class="row">
-                                <form action="ordered_item_add.php" method="get" >
+                                <form action="ordered_item_add.php" method="get">
                                     <table class="table">
                                         <tr>
                                             <td>
@@ -236,25 +236,25 @@ $order = getSpecificOrder($pdo, $id);
                                         </tr>
                                         <tr>
                                             <td>
-                                                
+
                                                 <select name="product_id" id="product_id" class="form-select">
                                                     <?php
                                                     $products = getProducts($pdo);
                                                     foreach ($products as $product):
                                                     ?>
-                                                        <option value="<?= $product['ID']?>"><?= $product['ID'] . ' - ' . $product['Name'] ?>.</option>
+                                                        <option value="<?= $product['ID'] ?>"><?= $product['ID'] . ' - ' . $product['Name'] ?>.</option>
                                                     <?php endforeach ?>
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="hidden" name="o_id" value="<?=$id?>">
+                                                <input type="hidden" name="o_id" value="<?= $id ?>">
                                                 <input type="number" name="qty" id="qty" min="1" class="form-control" value="1">
                                             </td>
                                             <td>
                                                 <input type="submit" id="submit" value="Add Item" name="submit" class="btn btn-primary">
                                             </td>
                                         </tr>
-                                        
+
                                     </table>
 
                                 </form>

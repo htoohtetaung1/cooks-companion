@@ -1,6 +1,6 @@
 <!-- set page name and import html head -->
 <?php
-$pagename = "The Best Companion for a Cook!";
+$pagename = "Our Return Policy";
 include("head.php");
 include("connect.php");
 include("fetch_Product.php");

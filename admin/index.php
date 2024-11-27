@@ -139,7 +139,7 @@ include("connect.php");
                         <div class="d-flex align-items-center justify-content-between mb-4">
                             <h6 class="mb-0">Daily Sales for This Month</h6>
                         </div>
-                        <canvas id="monthlySalesChart" width="400" height="200"></canvas>
+                        <canvas id="dailySalesChart" width="400" height="200"></canvas>
                     </div>
                 </div>
                 <div class="col-sm-12 col-xl-6">
@@ -147,7 +147,7 @@ include("connect.php");
                         <div class="d-flex align-items-center justify-content-between mb-4">
                             <h6 class="mb-0">Monthly Sales for This Year</h6>
                         </div>
-                        <canvas id="dailySalesChart" width="400" height="200"></canvas>
+                        <canvas id="monthlySalesChart" width="400" height="200"></canvas>
                     </div>
                 </div>
             </div>
@@ -163,7 +163,7 @@ include("connect.php");
                 data: {
                     labels: months, // Month names
                     datasets: [{
-                        label: 'Monthly Sales for <?php echo date('M') ?>',
+                        label: 'Monthly Sales for <?php echo date('Y') ?>',
                         data: monthlySales, // Total sales per month
                         borderColor: 'rgba(75, 192, 192, 1)',
                         backgroundColor: 'rgba(75, 192, 192, 0.2)',
@@ -199,7 +199,7 @@ include("connect.php");
                 data: {
                     labels: days, // Day of the month
                     datasets: [{
-                        label: 'Daily Sales for <?php echo date('d M') ; ?>',
+                        label: 'Daily Sales for <?php echo date('M') ; ?>',
                         data: dailySales, // Total sales per day
                         borderColor: 'rgba(255, 99, 132, 1)',
                         backgroundColor: 'rgba(255, 99, 132, 0.2)',

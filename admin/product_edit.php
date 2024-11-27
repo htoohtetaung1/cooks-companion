@@ -40,7 +40,7 @@ $product = getSpecificProduct($pdo, $id);
             <div class="row g-4">
                 <div class="col-sm-12 col-xl-12 px-lg-5">
                     <div class="bg-light rounded h-100 p-4">
-                        <h6 class="mb-4">Update Products</h6>
+                        <h6 class="mb-4">Edit Product</h6>
                         <form method="post" action="" enctype="multipart/form-data">
                             <div class="mb-3">
                                 <label for="product_id" class="form-label">Product ID</label>

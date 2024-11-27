@@ -40,7 +40,7 @@ $user = getSpecificUser($pdo, $id);
             <div class="row g-4">
                 <div class="col-sm-12 col-xl-12 px-lg-5">
                     <div class="bg-light rounded h-100 p-4">
-                        <h6 class="mb-4">Update User</h6>
+                        <h6 class="mb-4">Edit User</h6>
                         <form method="post" action="">
                             <div class="mb-3">
                                 <label for="user_id" class="form-label">User ID</label>

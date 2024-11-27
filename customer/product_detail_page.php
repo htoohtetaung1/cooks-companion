@@ -11,7 +11,7 @@ include("head.php");
 ?>
 
 <div class="main">
-    <div class="product-detail-container" style="border: 0.1px solid #0000001d"> 
+    <div class="product-detail-container" style="border: 0.1px solid #0000001d">
         <div class="product-detail1">
             <img src="../admin/<?= $product['photo'] ?>" alt="" class="product-img">
         </div>
@@ -21,8 +21,8 @@ include("head.php");
             </div>
             <div class="pd-stock">
                 <h5><a href="search_process.php?filter=<?= $ptype ?>">
-                    <u>Category : <?= $ptype ?>
-                </a></u></h5>
+                        <u>Category : <?= $ptype ?>
+                    </a></u></h5>
             </div>
             <div class="pd-stock">
                 <h4>In Stock : &nbsp; <?= $product['qty'] ?></h4>
@@ -48,10 +48,18 @@ include("head.php");
                 <?= $product['description'] ?>
             </div>
             <div class="pd-add">
-                <form action="addtocart.php" method="post" class="pd-add-form">
+                <form action="addtocart.php" method="post" class="pd-add-form add-to-cart-form">
                     <input type="number" value="1" min="1" name="amountAdd" onKeyDown="return false">
                     <input type="hidden" value="<?= $product['product_id'] ?>" name="id">
-                    <input type="submit" name="submit" class="hero-button" value="Add to Cart"></input>
+                    <input type="submit" name="submit" class="hero-button show-popup-btn" value="Add to Cart"></input>
+                    <!-- Overlay -->
+                    <div class="popup-overlay"></div>
+
+                    <!-- Popup -->
+                    <div class="popup" id="popup">
+                        <p>Added to Cart!</p>
+                        <button class="close-popup-btn hero-button">Close</button>
+                    </div>
                 </form>
             </div>
         </div>

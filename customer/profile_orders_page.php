@@ -1,7 +1,7 @@
 <!-- set page name and import html head -->
 <?php
 session_start();
-$pagename = $_SESSION['username'] . "'s Profile";
+$pagename = $_SESSION['username'] . "'s Orders";
 include("head.php");
 include("connect.php");
 include("data.php");
@@ -123,6 +123,18 @@ include("navbar.php");
                             <!-- delivery -->
                             <div class="py-1" style="margin-left: auto;">
                                 <p class="text-center"><?=number_format($delivery_fee)?>Ks</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col d-flex justify-content-between">
+                            <!-- Payment_type-->
+                            <div class="py-1 fw-bold w-25%">
+                                <p class="text-center">Payment type:</p>
+                            </div>
+                            <!-- Payment_type -->
+                            <div class="py-1" style="margin-left: auto;">
+                                <p class="text-center"><?=$order['payment_type']?></p>
                             </div>
                         </div>
                     </div>

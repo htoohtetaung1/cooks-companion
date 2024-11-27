@@ -37,12 +37,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <form action="process_checkout.php" method="post">
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
-                        <a href="profile_edit_page.php"><i class="fa-regular fa-pen-to-square"></i></a>
+                        <a href="profile_page.php"><i class="fa-regular fa-pen-to-square"></i></a>
                         <input type="text" id="name" name="name" class="form-control" value="<?= $_SESSION['username'] ?>" readonly>
                     </div>
                     <div class="mb-3">  
                         <label for="address" class="form-label">Shipping Address</label>
-                        <a href="profile_edit_page.php"><i class="fa-regular fa-pen-to-square"></i></a>
+                        <a href="profile_page.php"><i class="fa-regular fa-pen-to-square"></i></a>
                         <input type="text" name="address" id="address" class="form-control" value="<?= $_SESSION['address'] ?>" readonly>
                     </div>
                     <div class="mb-3">

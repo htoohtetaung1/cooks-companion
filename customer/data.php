@@ -35,7 +35,7 @@ function getUsers($pdo)
 function getOrderByUser($pdo, $user_id,$sort)
 {
     
-    $sql = "SELECT order_id FROM orders WHERE user_id= :user_id";
+    $sql = "SELECT order_id,payment_type FROM orders WHERE user_id= :user_id";
     switch ($sort) {
         case '':
         case 'newest':{
