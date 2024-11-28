@@ -52,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <option value="AYA Pay">AYA Pay</option>
                             <option value="CB Pay">CB Pay</option>
                             <option value="Wave Pay">Wave Pay</option>
+                            <option value="Cash on Delivery">Cash on Delivery</option>
                             <option value="MPU">MPU</option>
                             <option value="Visa">Visa</option>
                             <option value="PayPal">PayPal</option>
