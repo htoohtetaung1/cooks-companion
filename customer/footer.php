@@ -3,7 +3,7 @@
         <div class="footer-section footer-left">
             <a class="footer-logo" href="index.php">Cook's Companion</a>
             <div class="contact-info">
-                507/7 Pyay Yeik Thar Road, Pyay Road <br>
+                507/7 Pyay Yeik Thar Road,<br> Kamaryut Township <br>
                 Yangon, Myanmar <br>
                 +659975543222 <br>
                 cc@cookscompanion.com <br>
