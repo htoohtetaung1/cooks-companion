@@ -137,6 +137,8 @@ $product = getSpecificProduct($pdo, $id);
                 ]);
 
                 echo '<div class="text-center"><b>Product Updated Successfully! </b><div>';
+                echo "<script>setTimeout(function() {window.location.href = window.location.href;}, 0);</script>";
+
             } catch (Exception $e) {
                 echo "<h4>Error updating product: " . $e->getMessage() . "</h4>";
             }

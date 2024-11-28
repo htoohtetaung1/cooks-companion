@@ -172,6 +172,8 @@ $order = getSpecificOrder($pdo, $id);
                                         ]);
 
                                         echo '<div class="text-center"><b>Order Updated Successfully! </b><div>';
+                                        echo "<script>setTimeout(function() {window.location.href = window.location.href;}, 100);</script>";
+
                                     } catch (Exception $e) {
                                         echo "<h4>Error updating product: " . $e->getMessage() . "</h4>";
                                     }
@@ -293,7 +295,8 @@ $order = getSpecificOrder($pdo, $id);
                     ':user_id' => $user_id
                 ]);
 
-                echo '<div class="text-center"><b>User Updated Successfully! </b><div>';
+                echo '<div class="text-center"><b>Order Updated Successfully! </b><div>';
+                echo "<script>setTimeout(function() {window.location.href = window.location.href;}, 100);</script>";
             } catch (Exception $e) {
                 echo "<h4>Error updating product: " . $e->getMessage() . "</h4>";
             }

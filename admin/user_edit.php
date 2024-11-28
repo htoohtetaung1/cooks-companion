@@ -70,7 +70,6 @@ $user = getSpecificUser($pdo, $id);
                             <div class="mb-3">
                                 <label for="user_type" class="form-label">User Type</label>
                                 <select name="user_type" id="user_type" class="custom-select form-select">
-                                    <option value="$user['user_type']" selected disabled style="display:none;"><?=$user['user_type']?></option>
                                     <option value="customer">customer</option>
                                     <option value="admin">admin</option>
                                 </select>
@@ -117,6 +116,8 @@ $user = getSpecificUser($pdo, $id);
                 ]);
 
                 echo '<div class="text-center"><b>User Updated Successfully! </b><div>';
+                echo "<script>setTimeout(function() {window.location.href = window.location.href;}, 0);</script>";
+
             } catch (Exception $e) {
                 echo "<h4>Error updating product: " . $e->getMessage() . "</h4>";
             }

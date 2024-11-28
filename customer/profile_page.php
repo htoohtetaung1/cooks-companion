@@ -122,6 +122,8 @@ $stmt->execute([
                 ]);
                 
                 echo '<div class="text-center"><h5>Profile Updated Successfully! </h5><div>';
+                echo "<script>setTimeout(function() {window.location.href = window.location.href;}, 500);</script>";
+
             }
         } else if ((empty($pass1) && empty($pass1))) {
             
