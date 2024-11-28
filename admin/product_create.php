@@ -73,7 +73,7 @@ include("data.php");
                                 <label for="img" class="form-label">Photo</label>
                                 <input type="file" class="form-control" id="img" name="img" placeholder="No File Choosen" aria-describedby="addon-wrapping">
                             </div>
-                            <button type="submit" name="submit" class="btn btn-primary">Create</button>
+                            <button type="submit" name="submit" class="btn btn-primary">Add Product</button>
                         </form>
                     </div>
                 </div>

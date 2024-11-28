@@ -567,9 +567,12 @@ ul>li {
 
 .item-name,
 .item-price {
-    height: 50px;
+    height: 60px;
 }
 
+.item-name {
+    line-height: 20px;
+}
 .carousel-item>.line-break {
     margin-bottom: none;
 }

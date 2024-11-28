@@ -179,9 +179,17 @@ include("navbar.php");
                 Don't miss out on discounts and sales ever again!
             </div>
             <div>
-                <form action="" class="newsletter-form">
+                <form action="" class="newsletter-form add-to-cart-form">
                     <input class="email-input" type="email" name="newsletter-email" id="" placeholder="Your email here">
-                    <input class="email-submit" type="button" value="Submit" name="newsletter-submit">
+                    <button class="email-submit show-popup-btn" name="submit" name="newsletter-submit">Submit</button>
+                            <!-- Overlay -->
+                            <div class="popup-overlay"></div>
+            
+                            <!-- Popup -->
+                            <div class="popup" id="popup" style="text-align: center;">
+                                <p id="nl-msg">Thanks for signing up to our newsletter!</p>
+                                <button class="close-popup-btn hero-button">Close</button>
+                            </div>
                 </form>
             </div>
 
