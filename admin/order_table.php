@@ -31,8 +31,12 @@ require_once("data.php");
                         <h5 class="mb-4">Order Table</h5>
                         <?php
                         $sql = "SELECT * FROM orders";
+                        if (isset($_GET['search'])) {
+                            if (!empty($_GET['search'])) {
+                                $sql .= ' WHERE order_id = ' . $_GET['search'];
+                            }
+                        }
                         if (isset($_GET['sort'])) {
-                            $sort = $_GET['sort'];
                             switch ($_GET['sort']) {
                                 case 'date':
                                     $sql .= ' ORDER BY date';
@@ -48,16 +52,20 @@ require_once("data.php");
                                     break;
                             }
                         }
-                        $stmt = $pdo->query($sql);
-                        $orders = $stmt->fetchALL(PDO::FETCH_ASSOC);
+                        try {
+                            $stmt = $pdo->query($sql);
+                            $orders = $stmt->fetchALL(PDO::FETCH_ASSOC);
+                        } catch (Exception $e) {
+                            die($e->getMessage());
+                        }
                         ?>
 
                         <?php echo 'Total Orders = ' . count($orders) ?>
 
-                        <div>
+                        <div class="row">
                             <form action="#" method="GET">
-                                <label for="sort">Sort By:</label>
-                                <select name="sort" class="form-control" id="sort" onchange="this.form.submit()">
+                                <label class="form-label" for="sort">Sort By:</label>
+                                <select name="sort" id="sort" class="form-select" onchange="this.form.submit()">
                                     <option value="NULL">--choose sort order--</option>
                                     <option value="dateDesc">Last Ordered</option>
                                     <option value="date">First Ordered</option>
@@ -66,11 +74,23 @@ require_once("data.php");
                                 </select>
                             </form>
                         </div>
+                        <div class="d-flex flex-row flex-wrap" style="gap:10px">
+                            <form action="#" method="GET">
+                                <label for="sort" class="">Search By Order ID:</label>
+                                <input type="number" name="search" min="1" class="mb-1">
+                                <input type="submit" value="Search" class="btn btn-primary">
+                            </form>
+
+                            <form action="#">
+                                <input type="submit" value="Reset Search" class="btn btn-primary">
+                            </form>
+                        </div>
+
                         <div class="table-responsive">
                             <table class="table">
                                 <?php
                                 if ($orders == null) {
-                                    print '<h3>There are no orders!</h3>';
+                                    print '<h4>Order not found!</h4>';
                                 }
 
                                 //  foreach (array_slice($orders, 0, 2) as $order): {
@@ -146,7 +166,7 @@ require_once("data.php");
                                         <td colspan="7">
                                             <hr>
                                         </td>
-                                        
+
                                     </tr>
 
                                 <?php endforeach ?>
@@ -169,7 +189,7 @@ require_once("data.php");
 
 
         <!-- Footer Start -->
-        <div class="container-fluid pt-4 px-4">
+        <div class="pt-4">
             <div class="bg-light rounded-top p-4">
                 <div class="row">
                     <div class="col-12 col-sm-6 text-center text-sm-start">

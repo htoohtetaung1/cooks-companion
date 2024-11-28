@@ -142,13 +142,13 @@ include("navbar.php");
                         <?php endif ?>
 
                         <!-- Add to cart button -->
-                        <form method="post" action="addtocart.php" class="add-to-cart-form">
+                        <form method="post" action="addtocart.php" class="popup-form">
                             <input type="hidden" name="id" value="<?php echo $product['product_id']; ?>" />
                             <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
                             <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />
                             <input type="hidden" name="goTo" value="home" />
                             <input type="hidden" name="amountAdd" value="1" />
-                            <button name="add_to_cart" name='submit' class="add-cart-btn show-popup-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+                            <button name="add_to_cart" name='add-btn' class="add-cart-btn show-popup-btn"><i class="fa-solid fa-cart-shopping"></i></button>
                             <!-- Overlay -->
                             <div class="popup-overlay"></div>
             
@@ -179,9 +179,9 @@ include("navbar.php");
                 Don't miss out on discounts and sales ever again!
             </div>
             <div>
-                <form action="" class="newsletter-form add-to-cart-form">
-                    <input class="email-input" type="email" name="newsletter-email" id="" placeholder="Your email here">
-                    <button class="email-submit show-popup-btn" name="submit" name="newsletter-submit">Submit</button>
+                <form action="" class="newsletter-form popup-form">
+                    <input class="email-input" type="email" name="newsletter-email" required id="" placeholder="Your email here">
+                    <button class="email-submit show-popup-btn" name="nl-submit">Submit</button>
                             <!-- Overlay -->
                             <div class="popup-overlay"></div>
             
@@ -193,6 +193,10 @@ include("navbar.php");
                 </form>
             </div>
 
+        </div>
+        <div>
+            <div class="newsletter-title" style="margin-top: 10px">Do you have any questions?</div>
+            <p>Send us a message <a href="message_page.php"><u><b>here</b></u></a>, and we'll be sure to reply to you as soon as possible!</p>
         </div>
     </div>
     <div class="line-break"></div>

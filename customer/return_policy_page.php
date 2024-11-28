@@ -54,7 +54,10 @@ include("navbar.php");
     </p>
     <h2>Contact Us</h2>
     <p>
-        If you have any questions about our Return Policy or need assistance, please contact us at 
+        If you have any questions about our Return Policy or need assistance, 
+        <p>you can <a href="message_page.php"><u><b>send us a message</b></u></a> anytime and we'll be sure to reply as soon as possible.</p>
+
+        Or contact us at 
         <a href="mailto:returns@cookscompanion.com">returns@cookscompanion.com</a> or call <strong>09975543222 , 09975543333</strong>.
     </p>
     </div>

@@ -30,6 +30,10 @@ require_once("data.php");
                         <h5 class="mb-4">Product Table</h5>
                         <?php
                         $sql = 'SELECT * from products';
+                        if (isset($_GET['search']) && !empty($_GET['search'])) {
+                            $sql .= " WHERE product_id = ".$_GET['search'];
+                        }
+
                         if (isset($_GET['sort'])) {
 
                             $sql .= ' ORDER BY ';
@@ -56,8 +60,12 @@ require_once("data.php");
                                     $sql = 'SELECT * FROM products';
                             }
                         }
-                        $stmt = $pdo->query($sql);
-                        $products = $stmt->fetchALL(PDO::FETCH_ASSOC);
+                        try {
+                            $stmt = $pdo->query($sql);
+                            $products = $stmt->fetchALL(PDO::FETCH_ASSOC);
+                        } catch (Exception $e) {
+                            die($e->getMessage());
+                        }
                         ?>
                         <?php echo 'Total products = ' . count($products) ?>
                         <div>
@@ -74,13 +82,24 @@ require_once("data.php");
                                 </select>
                             </form>
                         </div>
+                        <div class="d-flex flex-row flex-wrap" style="gap:10px">
+                            <form action="#" method="GET">
+                                <label for="sort" class="">Search By Product ID:</label>
+                                <input type="number" name="search" min="1" class="mb-1">
+                                <input type="submit" value="Search" class="btn btn-primary">
+                            </form>
+
+                            <form action="#">
+                                <input type="submit" value="Reset Search" class="btn btn-primary">
+                            </form>
+                        </div>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
                                     <tr>
                                         <?php
                                         if ($products == null) {
-                                            print '<h3>There are no products!</h3>';
+                                            print '<h4>Product not found!</h4>';
                                         }
                                         ?>
 
@@ -134,7 +153,7 @@ require_once("data.php");
 
 
         <!-- Footer Start -->
-        <div class="container-fluid pt-4 px-4">
+        <div class="pt-4">
             <div class="bg-light rounded-top p-4">
                 <div class="row">
                     <div class="col-12 col-sm-6 text-center text-sm-start">

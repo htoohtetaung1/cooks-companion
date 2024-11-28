@@ -44,11 +44,11 @@ $product = getSpecificProduct($pdo, $id);
                         <form method="post" action="" enctype="multipart/form-data">
                             <div class="mb-3">
                                 <label for="product_id" class="form-label">Product ID</label>
-                                <input type="number" name="pid" class="form-control" id="product_id" aria-describedby="product_id" readonly value="<?= htmlspecialchars($product['product_id']) ?>">
+                                <input type="number" name="pid" class="form-control" id="product_id" required aria-describedby="product_id" readonly value="<?= htmlspecialchars($product['product_id']) ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="product_name" class="form-label">Name</label>
-                                <input type="text" name="pname" class="form-control" id="prouct_name" value="<?= htmlspecialchars($product['name']) ?>">
+                                <input type="text" name="pname" class="form-control" id="prouct_name" required value="<?= htmlspecialchars($product['name']) ?>">
                             </div>
 
                             <div class="mb-3">
@@ -64,19 +64,19 @@ $product = getSpecificProduct($pdo, $id);
 
                             <div class="mb-3">
                                 <label for="price" class="form-label">Price</label>
-                                <input type="text" name="price" class="form-control" id="price" value="<?= htmlspecialchars($product['price']) ?>">
+                                <input type="text" name="price" class="form-control" id="price" value="<?= htmlspecialchars($product['price'])?>" required>
                             </div>
                             <div class="mb-3">
                                 <label for="stock" class="form-label">Description</label>
-                                <input type="text" name="desc" class="form-control" id="stock" value="<?= htmlspecialchars($product['description']) ?>">
+                                <input type="text" name="desc" class="form-control" id="stock" required value="<?= htmlspecialchars($product['description']) ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="stock" class="form-label">Stock</label>
-                                <input type="number" name="stock" class="form-control" id="stock" value="<?= htmlspecialchars($product['qty']) ?>">
+                                <input type="number" name="stock" class="form-control" id="stock" required value="<?= htmlspecialchars($product['qty']) ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="discount" class="form-label">Discount</label>
-                                <input type="number" name="discount" class="form-control" id="discount" value="<?= htmlspecialchars($product['discount_percent']) ?>">
+                                <input type="number" name="discount" class="form-control" id="discount" required value="<?= htmlspecialchars($product['discount_percent']) ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="img" class="form-label">Photo</label>
@@ -145,7 +145,7 @@ $product = getSpecificProduct($pdo, $id);
 
 
         <!-- Footer Start -->
-        <div class="container-fluid pt-4 px-4">
+        <div class="pt-4">
             <div class="bg-light rounded-top p-4">
                 <div class="row">
                     <div class="col-12 col-sm-6 text-center text-sm-start">

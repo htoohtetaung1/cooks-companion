@@ -58,6 +58,7 @@ include("navbar.php");
 
     <h3>Still Have Questions?</h3>
     <p>If you couldn't find the answer to your question here, don’t hesitate to get in touch with us. We're happy to assist you!</p>
+    <p>You can <a href="message_page.php"><u><b>send us a message</b></u></a> anytime and we'll be sure to reply as soon as possible.</p>
     <p>Contact us at <a href="mailto:support@cookscompanion.com">support@cookscompanion.com</a> or call <strong>09975543222 , 09975543333</strong>.</p>
     </div>
 </div>

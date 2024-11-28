@@ -65,7 +65,7 @@ include("navbar.php");
                         <?php endif ?>
 
                         <!-- Add to cart button -->
-                        <form method="post" action="addtocart.php" class="add-to-cart-form">
+                        <form method="post" action="addtocart.php" class="popup-form">
                             <input type="hidden" name="id" value="<?php echo $product['product_id']; ?>" />
                             <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
                             <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />
@@ -140,7 +140,7 @@ include("navbar.php");
                         <?php endif ?>
 
                         <!-- Add to cart button -->
-                        <form method="post" action="addtocart.php" class="add-to-cart-form">
+                        <form method="post" action="addtocart.php" class="popup-form">
                             <input type="hidden" name="id" value="<?php echo $product['product_id']; ?>" />
                             <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
                             <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />
@@ -215,7 +215,7 @@ include("navbar.php");
                         <?php endif ?>
 
                         <!-- Add to cart button -->
-                        <form method="post" action="addtocart.php" class="add-to-cart-form">
+                        <form method="post" action="addtocart.php" class="popup-form">
                             <input type="hidden" name="id" value="<?php echo $product['product_id']; ?>" />
                             <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
                             <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />
@@ -290,7 +290,7 @@ include("navbar.php");
                         <?php endif ?>
 
                         <!-- Add to cart button -->
-                        <form method="post" action="addtocart.php" class="add-to-cart-form">
+                        <form method="post" action="addtocart.php" class="popup-form">
                             <input type="hidden" name="id" value="<?php echo $product['product_id']; ?>" />
                             <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
                             <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />
@@ -365,7 +365,7 @@ include("navbar.php");
                         <?php endif ?>
 
                         <!-- Add to cart button -->
-                        <form method="post" action="addtocart.php" class="add-to-cart-form">
+                        <form method="post" action="addtocart.php" class="popup-form">
                             <input type="hidden" name="id" value="<?php echo $product['product_id']; ?>" />
                             <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
                             <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />
@@ -440,7 +440,7 @@ include("navbar.php");
                         <?php endif ?>
 
                         <!-- Add to cart button -->
-                        <form method="post" action="addtocart.php" class="add-to-cart-form">
+                        <form method="post" action="addtocart.php" class="popup-form">
                             <input type="hidden" name="id" value="<?php echo $product['product_id']; ?>" />
                             <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
                             <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />

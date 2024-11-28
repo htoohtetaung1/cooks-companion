@@ -119,7 +119,7 @@ $order = getSpecificOrder($pdo, $id);
                                 <tr>
                                     <form action="" method="POST">
                                         <td><?= $order['order_id'] ?></td>
-                                        <td><input type="date" name="date" id="date" value="<?= $order['date'] ?>" class="form-control"> </td>
+                                        <td><input type="date" name="date" id="date" value="<?= $order['date'] ?>" class="form-control" required> </td>
                                         <td colspan="2">
                                             <select name="user_id" id="user_id" class="form-select">
                                                 <?php
@@ -172,7 +172,6 @@ $order = getSpecificOrder($pdo, $id);
                                         ]);
 
                                         echo '<div class="text-center"><b>Order Updated Successfully! </b><div>';
-                                        header('Refresh: 5');
                                     } catch (Exception $e) {
                                         echo "<h4>Error updating product: " . $e->getMessage() . "</h4>";
                                     }
@@ -303,7 +302,7 @@ $order = getSpecificOrder($pdo, $id);
 
 
         <!-- Footer Start -->
-        <div class="container-fluid pt-4 px-4">
+        <div class="pt-4">
             <div class="bg-light rounded-top p-4">
                 <div class="row">
                     <div class="col-12 col-sm-6 text-center text-sm-start">

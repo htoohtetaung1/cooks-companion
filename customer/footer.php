@@ -20,6 +20,7 @@
             <br> <a href="shipping_page.php" class="footer-link">Shipping</a>
             <br> <a href="return_policy_page.php" class="footer-link">Return Policy</a>
             <br> <a href="privacy_policy_page.php" class="footer-link">Privacy Policy</a>
+            <br> <a href="message_page.php" class="footer-link">Send us a Message</a>
             <br> <a href="feedback_page.php" class="footer-link">Give us Feedback!</a>
         </div>
     </div>

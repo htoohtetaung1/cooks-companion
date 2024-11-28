@@ -44,32 +44,33 @@ $user = getSpecificUser($pdo, $id);
                         <form method="post" action="">
                             <div class="mb-3">
                                 <label for="user_id" class="form-label">User ID</label>
-                                <input type="number" name="user_id" class="form-control" id="user_id" aria-describedby="user_id" readonly value="<?= htmlspecialchars($user['user_id']) ?>">
+                                <input type="number" name="user_id" class="form-control" id="user_id" required aria-describedby="user_id" readonly value="<?= htmlspecialchars($user['user_id']) ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="name" class="form-label">Name</label>
-                                <input type="text" name="name" class="form-control" id="name" value="<?= htmlspecialchars($user['name']) ?>">
+                                <input type="text" name="name" class="form-control" id="name" required value="<?= htmlspecialchars($user['name']) ?>">
                             </div>
 
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" name="email" class="form-control" id="email" value="<?= htmlspecialchars($user['email']) ?>">
+                                <input type="email" name="email" class="form-control" id="email" required value="<?= htmlspecialchars($user['email']) ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="address" class="form-label">Address</label>
-                                <input type="text" name="address" class="form-control" id="addrerss" value="<?= htmlspecialchars($user['address']) ?>">
+                                <input type="text" name="address" class="form-control" id="address" required value="<?= htmlspecialchars($user['address']) ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="phone" class="form-label">Phone</label>
-                                <input type="number" name="phone" class="form-control" id="phone" value="<?= htmlspecialchars($user['phone']) ?>">
+                                <input type="number" name="phone" class="form-control" id="phone" required value="<?= htmlspecialchars($user['phone']) ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="text" name="password" class="form-control" id="password" value="<?= htmlspecialchars($user['password']) ?>">
+                                <input type="text" name="password" class="form-control" required id="password" value="<?= htmlspecialchars($user['password']) ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="user_type" class="form-label">User Type</label>
                                 <select name="user_type" id="user_type" class="custom-select form-select">
+                                    <option value="$user['user_type']" selected disabled style="display:none;"><?=$user['user_type']?></option>
                                     <option value="customer">customer</option>
                                     <option value="admin">admin</option>
                                 </select>
@@ -124,7 +125,7 @@ $user = getSpecificUser($pdo, $id);
 
 
         <!-- Footer Start -->
-        <div class="container-fluid pt-4 px-4">
+        <div class="pt-4">
             <div class="bg-light rounded-top p-4">
                 <div class="row">
                     <div class="col-12 col-sm-6 text-center text-sm-start">

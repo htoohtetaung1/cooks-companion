@@ -46,6 +46,8 @@ include("navbar.php");
 
     <h3>Contact Us</h3>
     <p>If you have any questions about our shipping policies or need further assistance, please don't hesitate to reach out to our customer service team. We’re here to help!</p>
+    <p>You can <a href="message_page.php"><u><b>send us a message</b></u></a> anytime and we'll be sure to reply as soon as possible.</p>
+
     <p>Contact us at <a href="mailto:support@cookscompanion.com">support@cookscompanion.com</a> or call <strong>09975543222 , 09975543333</strong>.</p>
 
     </div>

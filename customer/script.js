@@ -35,24 +35,33 @@ function resetSearch() {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  const forms = document.querySelectorAll('.add-to-cart-form');
+  const forms = document.querySelectorAll('.popup-form');
+
+
 
   forms.forEach((form) => {
-    const showPopupBtn = form.querySelector('.show-popup-btn');
-    const closePopupBtn = form.querySelector('.close-popup-btn');
     const popup = form.querySelector('.popup');
     const overlay = form.querySelector('.popup-overlay');
+    const closePopupBtn = form.querySelector('.close-popup-btn');
 
-    // Show popup
-    showPopupBtn.addEventListener('click', function (event) {
-      event.preventDefault(); // Prevent form submission
+    // Handle form submission
+    form.addEventListener('submit', function (event) {
+      event.preventDefault(); // Stop form from submitting immediately
 
-      popup.classList.add('show');
-      overlay.classList.add('show');
+      // Check if the form is valid
+      if (form.checkValidity()) {
+        // Show the popup
+        popup.classList.add('show');
+        overlay.classList.add('show');
 
-      setTimeout(() => {
-        form.submit();
-      }, 2000);
+        // Optionally delay the form submission after showing the popup
+        setTimeout(() => {
+          form.submit(); // Submit the form after the popup
+        }, 1000); // Adjust the delay as needed
+      } else {
+        // If the form is invalid, show default browser validation messages
+        form.reportValidity();
+      }
     });
 
     // Close popup

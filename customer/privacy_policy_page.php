@@ -66,7 +66,8 @@ include("navbar.php");
         <h2>Contact Us</h2>
         <p>
             If you have any questions or concerns about our Privacy Policy or how your information is handled,
-            please contact us at <strong><a href="mailto:privacy@cookscompanion.com">privacy@cookscompanion.com</a></strong>.
+            <p>you can <a href="message_page.php"><u><b>send us a message</b></u></a> anytime and we'll be sure to reply as soon as possible.</p>
+            You can also contact us at <strong><a href="mailto:privacy@cookscompanion.com">privacy@cookscompanion.com</a></strong>.
         </p>
     </div>
 
