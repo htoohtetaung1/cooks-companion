@@ -48,23 +48,23 @@ $product = getSpecificProduct($pdo, $id);
                             </div>
                             <div class="mb-3">
                                 <label for="product_name" class="form-label">Name</label>
-                                <input type="text" name="pname" class="form-control" id="prouct_name" required value="<?= htmlspecialchars($product['name']) ?>">
+                                <input type="text" name="pname" class="form-control" id="prouct_name" value="<?= htmlspecialchars($product['name']) ?>">
                             </div>
 
                             <div class="mb-3">
                                 <label for="product_type" class="form-label">Product Type</label>
                                 <br>
                                 <select name="ptype" id="product_type" class="custom-select">
-                                        <option value="Kitchen Knives">Kitchen Knives</option>
-                                        <option value="Cookware">Cookware</option>
-                                        <option value="Accessories">Accessories</option>
-                                        <option value="Appliances">Appliances</option>
+                                    <option value="Kitchen Knives">Kitchen Knives</option>
+                                    <option value="Cookware">Cookware</option>
+                                    <option value="Accessories">Accessories</option>
+                                    <option value="Appliances">Appliances</option>
                                 </select>
                             </div>
 
                             <div class="mb-3">
                                 <label for="price" class="form-label">Price</label>
-                                <input type="text" name="price" class="form-control" id="price" value="<?= htmlspecialchars($product['price'])?>" required>
+                                <input type="text" name="price" class="form-control" id="price" required value="<?= htmlspecialchars($product['price']) ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="stock" class="form-label">Description</label>
@@ -72,15 +72,15 @@ $product = getSpecificProduct($pdo, $id);
                             </div>
                             <div class="mb-3">
                                 <label for="stock" class="form-label">Stock</label>
-                                <input type="number" name="stock" class="form-control" id="stock" required value="<?= htmlspecialchars($product['qty']) ?>">
+                                <input type="number" name="stock" class="form-control" id="stock"  required value="<?= htmlspecialchars($product['qty']) ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="discount" class="form-label">Discount</label>
-                                <input type="number" name="discount" class="form-control" id="discount" required value="<?= htmlspecialchars($product['discount_percent']) ?>">
+                                <input type="text" name="discount" class="form-control" id="discount" required value="<?= htmlspecialchars($product['discount_percent']) ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="img" class="form-label">Photo</label>
-                                <input type="file" name="img" class="form-control" id="img" >
+                                <input type="file" name="img" class="form-control" id="img">
 
                             </div>
                             <button type="submit" name="submit" class="btn btn-primary">Update</button>
@@ -97,7 +97,7 @@ $product = getSpecificProduct($pdo, $id);
             $tmp = $_FILES['img']['tmp_name'];
             $targetDir = "img/" . $target; // Target directory to store the uploaded image
             move_uploaded_file($tmp, $targetDir); // Moving the uploaded image to the target directory
-            if($_FILES['img']['size'] == 0) {
+            if ($_FILES['img']['size'] == 0) {
                 print('<div class="text-center mt-2"><b>No new image inserted.</b></div> <br>');
                 $targetDir = $product['photo'];
             }
@@ -107,11 +107,17 @@ $product = getSpecificProduct($pdo, $id);
         if (isset($_POST['submit'])) {
             try {
                 $id = $product['product_id'];
-                $pname = $_POST['pname'];
+                $pname = trim($_POST['pname']);
+                if (empty($pname)) {
+                    throw new Exception("Name is blank!");
+                }
                 $ptype = $_POST['ptype'];
                 $price = $_POST['price'];
                 $desc = $_POST['desc'];
                 $stock = $_POST['stock'];
+                if ($stock < 0) {
+                    throw new Exception("Stock cannot be less than 0.");
+                }
                 $discount = $_POST['discount'];
 
                 $sql = "UPDATE products SET 
@@ -138,9 +144,8 @@ $product = getSpecificProduct($pdo, $id);
 
                 echo '<div class="text-center"><b>Product Updated Successfully! </b><div>';
                 echo "<script>setTimeout(function() {window.location.href = window.location.href;}, 0);</script>";
-
             } catch (Exception $e) {
-                echo "<h4>Error updating product: " . $e->getMessage() . "</h4>";
+               echo ("Couldn't update product. ". $e->getMessage());
             }
         }
         ?>

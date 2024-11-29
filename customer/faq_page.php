@@ -38,7 +38,7 @@ include("navbar.php");
 
     <h3>6. What is your return policy?</h3>
     <p>We want you to be completely satisfied with your purchase. If you’re not happy, you can return most items within 30 days of receiving your order.
-         Please visit our <a href="return_policy_page.php">Return Policy</a> page for more details.</p>
+         Please visit our <u> <a href="return_policy_page.php">Return Policy</a></u> page for more details.</p>
 
     <h3>7. How can I contact customer support?</h3>
     <p>If you have any questions or need assistance, our customer support team is here to help! 

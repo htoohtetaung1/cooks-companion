@@ -1,4 +1,4 @@
-<div class="navbar" style="padding-left: 20px">
+<div class="navbar" style="padding-left: 20px;position: fixed;top: 0;">
     <div class="nav-logo">
         <div class="nav-logo-text">
             <a href="index.php">Cook's Companion</a>

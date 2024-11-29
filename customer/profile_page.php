@@ -17,7 +17,7 @@ include("navbar.php");
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
 
-<div class="main">
+<div class="main" style="margin-top: 50px;">
     <div class="profile-container p-3" style="display: flex; flex-direction:column;">
         <div class="profile-links" style="display: flex; gap:10px;justify-content: space-evenly;">
             <div>
@@ -80,7 +80,7 @@ include("navbar.php");
 <?php
 try {
     if (isset($_POST['submit'])) {
-        
+
         $user_id = $_SESSION['user_id'];
         $name = $_POST['name'];
         $email = $_POST['email'];
@@ -88,8 +88,8 @@ try {
         $address = $_POST['address'];
         $pass1 = $_POST['password'];
         $pass2 = $_POST['cpassword'];
-        
-        
+
+
         //if new passwords are entered check them and update with password
         if (!(empty($pass1) && empty($pass1))) {
             echo '<font color="red"><b>';
@@ -111,8 +111,8 @@ try {
                 password = :password
                 WHERE user_id = :user_id";
 
-$stmt = $pdo->prepare($sql);
-$stmt->execute([
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute([
                     ':user_id' => $user_id,
                     ':name' => $name,
                     ':email' => $email,
@@ -120,13 +120,12 @@ $stmt->execute([
                     ':address' => $address,
                     ':password' => $pass1,
                 ]);
-                
+
                 echo '<div class="text-center"><h5>Profile Updated Successfully! </h5><div>';
                 echo "<script>setTimeout(function() {window.location.href = window.location.href;}, 500);</script>";
-
             }
         } else if ((empty($pass1) && empty($pass1))) {
-            
+
             //if new passwords are not entered update without them
             $sql = "UPDATE users SET
                 name = :name,
@@ -135,7 +134,7 @@ $stmt->execute([
                 address = :address
                 WHERE user_id = :user_id";
 
-$stmt = $pdo->prepare($sql);
+            $stmt = $pdo->prepare($sql);
             $stmt->execute([
                 ':user_id' => $user_id,
                 ':name' => $name,
@@ -144,13 +143,19 @@ $stmt = $pdo->prepare($sql);
                 ':address' => $address,
             ]);
             echo '<div class="text-center"><h5>Profile Updated Successfully! </h5><div>';
+            echo "<script>setTimeout(function() {window.location.href = window.location.href;}, 500);</script>";
         }
     }
 } catch (Exception $e) {
+    echo("Cannot update profile info. ");
+    //check integrity constraint violation (existing email)
+    if($e->getCode()==='23000') {
+        die("<span style='color:red;'>The email is already in use.<span>");
+    }
     die($e->getMessage());
 }
 ?>
 
-<?php 
+<?php
 include('footer.php');
 ?>

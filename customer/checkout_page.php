@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 <div class="main">
-    <div class="container" style="margin-top: -30px;">
+    <div class="container" style="margin-top: 30px;">
         <div class="row">
             <div class="col-md-12 border rounded-4 mb-4 p-3">
                 <h2>Checkout</h2>
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <p>$ <?= number_format($total_amount, 0) ?></p>
                 </div>
 
-                <form action="process_checkout.php" method="post">
+                <form action="complete_checkout_page.php" method="post">
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
                         <a href="profile_page.php"><i class="fa-regular fa-pen-to-square"></i></a>
