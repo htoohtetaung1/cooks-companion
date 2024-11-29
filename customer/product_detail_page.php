@@ -48,10 +48,11 @@ include("head.php");
                 <?= $product['description'] ?>
             </div>
             <div class="pd-add">
-                <form action="addtocart.php" method="post" class="pd-add-form add-to-cart-form">
+                <form action="addtocart.php" method="post" class="pd-add-form popup-form">
                     <input type="number" value="1" min="1" name="amountAdd" onKeyDown="return false">
                     <input type="hidden" value="<?= $product['product_id'] ?>" name="id">
-                    <input type="submit" name="submit" class="hero-button show-popup-btn" value="Add to Cart"></input>
+                    <!-- <input type="button" name="add-submit" class="hero-button show-popup-btn" value="Add to Cart"></input> -->
+                    <button name="add-submit" class="hero-button show-popup-btn">Add to Cart</button>
                     <!-- Overlay -->
                     <div class="popup-overlay"></div>
 
