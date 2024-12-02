@@ -68,6 +68,7 @@ include("navbar.php");
             ?>
                 <div class="row p-2">
                     <h5> Order ID : <?= $order['order_id'] ?></h5>
+                    <h6> Date : <?=$order['date']?></h6>
                     <?php
                     foreach ($order_details as $orderdetail): {
                             $total_amount += ($orderdetail['qty'] * $orderdetail['price']);
